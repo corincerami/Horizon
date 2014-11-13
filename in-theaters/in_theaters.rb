@@ -1,8 +1,20 @@
 require "json"
 require "pry"
+require "net/http"
+
+if !ENV.has_key?("ROTTEN_TOMATOES_API_KEY")
+  puts "You need to set the ROTTEN_TOMATOES_API_KEY environment variable."
+  exit 1
+end
+
+api_key = ENV["ROTTEN_TOMATOES_API_KEY"]
+uri = URI("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=#{api_key}")
+
+response = Net::HTTP.get(uri)
+movie_data = JSON.parse(response)
 
 # pulls movie data in from file
-movie_data = JSON.parse(File.read("in_theaters.json"))
+## movie_data = JSON.parse(File.read("in_theaters.json"))
 # converts individual movies in hash to an array
 movies_array = movie_data["movies"]
 # creates hash that will serve aas sorting mechanism for moviedata
