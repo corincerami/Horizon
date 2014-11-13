@@ -1,18 +1,18 @@
-# YOUR CODE GOES HERE
 require "pry"
 
 def common_words(file)
   word_count = Hash.new(0)
   File.read(file).scan(/\w+/).each do |word|
-    if word.length >= 6
+    if word.length >= 2
       word_count[word.downcase] += 1
     end
   end
-  most_common = word_count.sort_by { |_, count| count }.reverse.first(99999)
+  most_common = word_count.sort_by { |_, count| count }.reverse.first(132)
   compression_hash = {}
-  i = 0
+  i = 124
   most_common.each do |word, count|
-    compression_hash[i] = word
+    #i = 0 if i == 256
+    compression_hash[i.chr(Encoding::UTF_8)] = word
     i += 1
   end
   compression_hash
@@ -22,8 +22,8 @@ def compress(file)
   original_size = File.read(file).size
   compression_hash = common_words(file)
   text = File.read(file)
-  compression_hash.each do |number, word|
-    text.gsub!(word, "*#{number.to_s}*")
+  compression_hash.each do |char, word|
+    text.gsub!(word, char)
   end
   File.open("c-#{file}", "w") { |f| f.write(text) }
   final_size = File.read("c-#{file}").size.to_f
@@ -33,8 +33,9 @@ end
 def uncompress(file)
   text = File.read("c-#{file}")
   compression_hash = common_words(file)
-  compression_hash.each do |number, word|
-    text.gsub!("*#{number.to_s}*", word)
+  compression_hash.each do |char, word|
+    char = char.to_s
+    text.gsub!(char, word)
   end
   File.open("u-#{file}", "w") { |f| f.write(text) }
   original = File.read(file)
