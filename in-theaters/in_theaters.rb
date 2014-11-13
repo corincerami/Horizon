@@ -31,8 +31,10 @@ movies_array.each do |movie|
   cast = movie["abridged_cast"]
   actors_array = []
   # extracts only name from "abridged_cast" hash (as opposed to character)
+  actor_count = 0
   cast.each do |actor|
-    actors_array << actor["name"]
+    actors_array << actor["name"] if actor_count < 3
+    actor_count += 1
   end
   # organizes how data should be displayed, stores it all in one location
   movie_data_array = [average_score, movie_title, mpaa_rating, actors_array]
