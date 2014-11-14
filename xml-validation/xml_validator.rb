@@ -1,3 +1,5 @@
+require "pry"
+
 # check for opening items using scan or regex
 # store opening items in an array
 # check for closing items using scan or regex
@@ -8,5 +10,19 @@
 # only one root element (doctype element?) should exist
 
 input = ARGV[0]
-open_items = File.read(input).scan(/<\w+>/)
-binding.pry
+
+# checks for missing tags
+open_tags = File.read(input).scan(/<\w+>/)
+close_tags = File.read(input).scan(/<\/\w+>/)
+
+open_tags.each do |tag|
+  if close_tags.include?(tag.insert(1, "/"))
+    open_tags.delete_at(open_tags.index(tag))
+    close_tags.delete_at(close_tags.index(tag))
+  else
+    puts "INVALID"
+    exit
+  end
+end
+
+puts "VALID"
