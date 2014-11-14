@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 require "pry"
 
-# creating frequencies as a method caused redundant
-# creation of frequencies hash and slowed the program
 $frequencies = Hash.new(0)
 # counts each word and stores counts to frequencies hash
+# creating frequencies hash as a method caused redundant
+# creation of frequencies hash and slowed the program
 File.read("lotsowords.txt").scan(/\w+/).each do |word|
   $frequencies[word.downcase] += 1
 end

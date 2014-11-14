@@ -6,3 +6,7 @@
 # if array is empty at the end, all items are closed
 # make an exception for self-closing items and doctype items
 # only one root element (doctype element?) should exist
+
+input = ARGV[0]
+open_items = File.read(input).scan(/<\w+>/)
+binding.pry
