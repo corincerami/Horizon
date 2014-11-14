@@ -1,17 +1,9 @@
 require "pry"
 
-# check for opening items using scan or regex
-# store opening items in an array
-# check for closing items using scan or regex
-# each closing item should correspond with the last opening item in the array
-# if a correponding opening item exists for the closing item, remove it from array
-# if array is empty at the end, all items are closed
-# make an exception for self-closing items and doctype items
-# only one root element (doctype element?) should exist
-
 input = ARGV[0]
 
-# checks for missing tags
+# checks for missing tags, ignores self-closing tags
+# doesn't account for tags in the wrong order
 open_tags = File.read(input).scan(/<\w+>/)
 close_tags = File.read(input).scan(/<\/\w+>/)
 
@@ -24,5 +16,7 @@ open_tags.each do |tag|
     exit
   end
 end
+
+# checks for root element
 
 puts "VALID"
