@@ -1,27 +1,32 @@
 #!/usr/bin/env ruby
 require "pry"
-#def find_frequencies
-  # build array from file of all words
-  word_bank = File.read("lotsowords.txt").scan(/\w+/)
-  $frequencies = Hash.new(0)
-  # counts each word and stores counts to frequencies hash
-  word_bank.each do |word|
-    $frequencies[word.downcase] += 1
-  end
-  #frequencies
-#end
+
+# creating frequencies as a method caused redundant
+# creation of frequencies hash and slowed the program
+$frequencies = Hash.new(0)
+# counts each word and stores counts to frequencies hash
+File.read("lotsowords.txt").scan(/\w+/).each do |word|
+  $frequencies[word.downcase] += 1
+end
+
+# tracks number of corrections
+$corrected_words = 0
+# clears the corrected.txt file if it exists
+File.open("corrected.txt", "w"){ |f| f.write("")}
 
 def extra_letters(word)
-  # check for extra letters
+  # removes each letter
+  new_word_array = []
   for i in 0..word.length - 1
     new_word = "" + word
     new_word.slice!(i)
+    new_word_array << new_word
   end
-  new_word
+  new_word_array
 end
 
 def missing_letters(word)
-  # check for missing letters
+  # adds extra letters at each point in word
   new_word_array = []
   for i in 0..word.length - 1
     for letter in "a".."z"
@@ -33,7 +38,7 @@ def missing_letters(word)
 end
 
 def swapped_letters(word)
- # check for swapped letters
+ # swaps two adjacent letters
  new_word_array = []
  for i in 0..word.length - 2
   # creates new_word while conserving original
@@ -49,48 +54,69 @@ def swapped_letters(word)
 end
 
 def replace_word(word)
-  possible_words = Hash.new("ERROR")
-  new_word = extra_letters(word)
-  if $frequencies.keys.include?(new_word)
-    possible_words[new_word] = $frequencies[new_word]
+  # stores all potential corrected words
+  possible_words = Hash.new
+  # runs extra_letters and checks if the result is a word
+  new_word_array = extra_letters(word)
+  new_word_array.each do |new_word|
+    if $frequencies[new_word] > 0
+      possible_words[new_word] = $frequencies[new_word]
+    end
   end
+  # runs missing_letters and checks if the result is a word
   new_word_array = missing_letters(word)
   new_word_array.each do |new_word|
-    possible_words[new_word] = $frequencies[new_word]
+    if $frequencies[new_word] > 0
+      possible_words[new_word] = $frequencies[new_word]
+    end
   end
+  # runs swapped_letters and checks if the result is a word
   new_word_array = swapped_letters(word)
   new_word_array.each do |new_word|
-    possible_words[new_word] = $frequencies[new_word]
+    if $frequencies[new_word] > 0
+      possible_words[new_word] = $frequencies[new_word]
+    end
   end
-  possible_words.key(possible_words.values.max).to_s
+  # returns the most frequently used possible word
+  if possible_words.length > 0
+    $corrected_words += 1
+    # write corrections to file for inspection, used for testing
+    # File.open("corrected.txt", "a"){ |f| f.puts("#{word} to #{possible_words.key(possible_words.values.max)}")}
+    return possible_words.key(possible_words.values.max)
+  else
+    return word
+  end
+  # single line works if you don't care about tracking corrections
+  #possible_words.length > 0 ? possible_words.key(possible_words.values.max) : word
 end
 
-def correct(sentence)
+def correct(text)
   start_time = Time.new
-  words = sentence.scan(/\w+/)
   total_words = 0
-  corrected_words = 0
+  words = text.scan(/\w+/)
   words.each do |word|
     total_words += 1
     unless $frequencies.keys.include?(word.downcase)
-      corrected_words += 1
-      sentence.sub!(word, replace_word(word))
+      #corrected_words += 1
+      text.sub!(word, replace_word(word))
     end
   end
   puts "Total words checked: #{total_words}"
-  puts "Words corrected: #{corrected_words}"
-  puts "Percent corrected: #{corrected_words.to_f / total_words * 100}"
+  puts "Words corrected: #{$corrected_words}"
+  puts "Percent corrected: #{($corrected_words.to_f / total_words * 100).round(2)}"
   end_time = Time.new
   time_taken = end_time - start_time
-  puts "Time taken to check (in seconds): #{time_taken}"
+  puts "Time taken to check (in seconds): #{time_taken.round(2)}"
   puts "#{total_words / time_taken} words checked per second"
-  sentence
+  text
 end
 
-# birkbeck.txt is a massive log of english misspellings for testing
-input = File.read("birkbeck.txt")
+# .txt files are logs of english misspellings for testing
+input = File.read("wikipedia.txt")
+#input = File.read("aspell.txt")
+#input = File.read("birkbeck.txt")
 #input = ARGV.join(" ")
-#puts correct(input)
+correct(input)
 
-File.open("frequencies.txt", "w+"){ |f| f.write($frequencies) }
-File.open("corrections.txt", "w+"){ |f| f.write(correct(input))}
+# saves a file of with the corrected text
+#File.open("corrected.txt", "w+"){ |f| f.write(correct(input))}
