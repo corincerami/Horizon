@@ -10,9 +10,9 @@ File.read("lotsowords.txt").scan(/\w+/).each do |word|
 end
 
 # tracks number of corrections
-$corrected_words = 0
+$corrected_words = 0 #
 # clears the corrected.txt file if it exists
-File.open("corrected.txt", "w"){ |f| f.write("")}
+#File.open("corrected.txt", "w"){ |f| f.write("")}
 
 def extra_letters(word)
   # removes each letter
@@ -81,42 +81,39 @@ def replace_word(word)
   if possible_words.length > 0
     $corrected_words += 1
     # write corrections to file for inspection, used for testing
-    # File.open("corrected.txt", "a"){ |f| f.puts("#{word} to #{possible_words.key(possible_words.values.max)}")}
+    #File.open("corrected.txt", "a"){ |f| f.puts("#{word} to #{possible_words.key(possible_words.values.max)}")}
     return possible_words.key(possible_words.values.max)
   else
     return word
   end
-  # single line works if you don't care about tracking corrections
-  #possible_words.length > 0 ? possible_words.key(possible_words.values.max) : word
 end
 
 def correct(text)
-  start_time = Time.new
-  total_words = 0
+  start_time = Time.new #
+  total_words = 0 #
   words = text.scan(/\w+/)
   words.each do |word|
-    total_words += 1
+    total_words += 1 #
     unless $frequencies.keys.include?(word.downcase)
-      #corrected_words += 1
       text.sub!(word, replace_word(word))
     end
   end
-  puts "Total words checked: #{total_words}"
-  puts "Words corrected: #{$corrected_words}"
-  puts "Percent corrected: #{($corrected_words.to_f / total_words * 100).round(2)}"
-  end_time = Time.new
-  time_taken = end_time - start_time
-  puts "Time taken to check (in seconds): #{time_taken.round(2)}"
-  puts "#{total_words / time_taken} words checked per second"
+  #puts "Total words checked: #{total_words}" #
+  #puts "Words corrected: #{$corrected_words}" #
+  #puts "Percent corrected: #{($corrected_words.to_f / total_words * 100).round(2)}" #
+  end_time = Time.new #
+  time_taken = end_time - start_time #
+  #puts "Time taken to check (in seconds): #{time_taken.round(2)}" #
+  #puts "#{(total_words / time_taken).round(2)} words checked per second" #
   text
 end
 
 # .txt files are logs of english misspellings for testing
-input = File.read("wikipedia.txt")
+#input = File.read("wikipedia.txt")
 #input = File.read("aspell.txt")
 #input = File.read("birkbeck.txt")
-#input = ARGV.join(" ")
-correct(input)
+input = ARGV.join(" ")
+puts correct(input)
 
-# saves a file of with the corrected text
+# saves a file with the corrected text
 #File.open("corrected.txt", "w+"){ |f| f.write(correct(input))}
