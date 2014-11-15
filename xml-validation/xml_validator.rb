@@ -7,7 +7,7 @@ def check_tags(all_tags)
   # creates an array to use as a stack
   tags_stack = Array.new
   all_tags.each do |tag|
-    #tag_index = tags_stack.index(tag)
+    # tag_index = tags_stack.index(tag)
     if tag[1] == "/"
       tag.slice!(1) # remove / character
       tag.slice!(-1) # remove > character

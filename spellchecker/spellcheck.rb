@@ -12,12 +12,12 @@ end
 # tracks number of corrections
 $corrected_words = 0 #
 # clears the corrected.txt file if it exists
-#File.open("corrected.txt", "w"){ |f| f.write("")}
+# File.open("corrected.txt", "w"){ |f| f.write("")}
 
 def extra_letters(word)
   # removes each letter
   new_word_array = []
-  for i in 0..word.length - 1
+  (0..word.length - 1).each do |i|
     new_word = "" + word
     new_word.slice!(i)
     new_word_array << new_word
@@ -28,8 +28,8 @@ end
 def missing_letters(word)
   # adds extra letters at each point in word
   new_word_array = []
-  for i in 0..word.length - 1
-    for letter in "a".."z"
+  (0..word.length - 1).each do |i|
+    "a".."z".each do |letter|
       new_word = "" + word
       new_word_array << new_word.insert(i, letter)
     end
@@ -38,19 +38,19 @@ def missing_letters(word)
 end
 
 def swapped_letters(word)
- # swaps two adjacent letters
- new_word_array = []
- for i in 0..word.length - 2
-  # creates new_word while conserving original
-  new_word = "" + word
-  # ugly way of swapping two characters
-  a = new_word[i]
-  b = new_word[i + 1]
-  new_word[i] = b
-  new_word[i + 1] = a
-  new_word_array << new_word
- end
- new_word_array
+  # swaps two adjacent letters
+  new_word_array = []
+  (0..word.length - 2).each do |i|
+    # creates new_word while conserving original
+    new_word = "" + word
+    # ugly way of swapping two characters
+    a = new_word[i]
+    b = new_word[i + 1]
+    new_word[i] = b
+    new_word[i + 1] = a
+    new_word_array << new_word
+  end
+  new_word_array
 end
 
 def replace_word(word)
@@ -81,7 +81,7 @@ def replace_word(word)
   if possible_words.length > 0
     $corrected_words += 1
     # write corrections to file for inspection, used for testing
-    #File.open("corrected.txt", "a"){ |f| f.puts("#{word} to #{possible_words.key(possible_words.values.max)}")}
+    # File.open("corrected.txt", "a"){ |f| f.puts("#{word} to #{possible_words.key(possible_words.values.max)}")}
     return possible_words.key(possible_words.values.max)
   else
     return word
@@ -89,7 +89,7 @@ def replace_word(word)
 end
 
 def correct(text)
-  start_time = Time.new #
+  # start_time = Time.new #
   total_words = 0 #
   words = text.scan(/\w+/)
   words.each do |word|
@@ -98,22 +98,22 @@ def correct(text)
       text.sub!(word, replace_word(word))
     end
   end
-  #puts "Total words checked: #{total_words}" #
-  #puts "Words corrected: #{$corrected_words}" #
-  #puts "Percent corrected: #{($corrected_words.to_f / total_words * 100).round(2)}" #
-  end_time = Time.new #
-  time_taken = end_time - start_time #
-  #puts "Time taken to check (in seconds): #{time_taken.round(2)}" #
-  #puts "#{(total_words / time_taken).round(2)} words checked per second" #
+  # puts "Total words checked: #{total_words}" #
+  # puts "Words corrected: #{$corrected_words}" #
+  # puts "Percent corrected: #{($corrected_words.to_f / total_words * 100).round(2)}" #
+  # end_time = Time.new #
+  # time_taken = end_time - start_time #
+  # puts "Time taken to check (in seconds): #{time_taken.round(2)}" #
+  # puts "#{(total_words / time_taken).round(2)} words checked per second" #
   text
 end
 
 # .txt files are logs of english misspellings for testing
-#input = File.read("wikipedia.txt")
-#input = File.read("aspell.txt")
-#input = File.read("birkbeck.txt")
+# input = File.read("wikipedia.txt")
+# input = File.read("aspell.txt")
+# input = File.read("birkbeck.txt")
 input = ARGV.join(" ")
 puts correct(input)
 
 # saves a file with the corrected text
-#File.open("corrected.txt", "w+"){ |f| f.write(correct(input))}
+# File.open("corrected.txt", "w+"){ |f| f.write(correct(input))}
