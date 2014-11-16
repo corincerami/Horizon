@@ -28,10 +28,10 @@ end
 def missing_letters(word)
   # adds extra letters at each point in word
   new_word_array = []
-  (0..word.length - 1).each do |i|
-    "a".."z".each do |letter|
+  (0..word.length).each do |i| # for each point in the word
+    ("a".."z").each do |letter| # for each letter in the alphabet
       new_word = "" + word
-      new_word_array << new_word.insert(i, letter)
+      new_word_array << new_word.insert(i, letter) # insert each letter at each point
     end
   end
   new_word_array
@@ -43,11 +43,8 @@ def swapped_letters(word)
   (0..word.length - 2).each do |i|
     # creates new_word while conserving original
     new_word = "" + word
-    # ugly way of swapping two characters
-    a = new_word[i]
-    b = new_word[i + 1]
-    new_word[i] = b
-    new_word[i + 1] = a
+    # swaps adjacent letters
+    new_word[i], new_word[i + 1] = new_word[i + 1], new_word[i]
     new_word_array << new_word
   end
   new_word_array
