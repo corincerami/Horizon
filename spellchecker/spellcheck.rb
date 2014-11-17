@@ -1,16 +1,23 @@
 #!/usr/bin/env ruby
 require "pry"
 
-$frequencies = Hash.new(0)
-# counts each word and stores counts to frequencies hash
-# creating frequencies hash as a method caused redundant
-# creation of frequencies hash and slowed the program
-File.read("lotsowords.txt").scan(/\w+/).each do |word|
-  $frequencies[word.downcase] += 1
+def find_frequency
+  frequencies = Hash.new(0)
+  # counts each word and stores counts to frequencies hash
+  # creating frequencies hash as a method caused redundant
+  # creation of frequencies hash and slowed the program
+  # I realized that passing in the result of find_frequency
+  # as a second argument would allow me to run it only once
+  File.read("lotsowords.txt").scan(/\w+/).each do |word|
+    frequencies[word.downcase] += 1
+  end
+  frequencies
 end
 
+frequencies = find_frequency
+
 # tracks number of corrections
-$corrected_words = 0 #
+# $corrected_words = 0 #
 # clears the corrected.txt file if it exists
 # File.open("corrected.txt", "w"){ |f| f.write("")}
 
@@ -50,33 +57,33 @@ def swapped_letters(word)
   new_word_array
 end
 
-def replace_word(word)
+def replace_word(word, frequencies)
   # stores all potential corrected words
   possible_words = Hash.new
   # runs extra_letters and checks if the result is a word
   new_word_array = extra_letters(word)
   new_word_array.each do |new_word|
-    if $frequencies[new_word] > 0
-      possible_words[new_word] = $frequencies[new_word]
+    if frequencies[new_word] > 0
+      possible_words[new_word] = frequencies[new_word]
     end
   end
   # runs missing_letters and checks if the result is a word
   new_word_array = missing_letters(word)
   new_word_array.each do |new_word|
-    if $frequencies[new_word] > 0
-      possible_words[new_word] = $frequencies[new_word]
+    if frequencies[new_word] > 0
+      possible_words[new_word] = frequencies[new_word]
     end
   end
   # runs swapped_letters and checks if the result is a word
   new_word_array = swapped_letters(word)
   new_word_array.each do |new_word|
-    if $frequencies[new_word] > 0
-      possible_words[new_word] = $frequencies[new_word]
+    if frequencies[new_word] > 0
+      possible_words[new_word] = frequencies[new_word]
     end
   end
   # returns the most frequently used possible word
   if possible_words.length > 0
-    $corrected_words += 1
+    #$corrected_words += 1
     # write corrections to file for inspection, used for testing
     # File.open("corrected.txt", "a"){ |f| f.puts("#{word} to #{possible_words.key(possible_words.values.max)}")}
     return possible_words.key(possible_words.values.max)
@@ -85,14 +92,14 @@ def replace_word(word)
   end
 end
 
-def correct(text)
+def correct(text, frequencies)
   # start_time = Time.new #
-  total_words = 0 #
+  # total_words = 0 #
   words = text.scan(/\w+/)
   words.each do |word|
     total_words += 1 #
-    unless $frequencies.keys.include?(word.downcase)
-      text.sub!(word, replace_word(word))
+    unless frequencies.keys.include?(word.downcase)
+      text.sub!(word, replace_word(word, frequencies))
     end
   end
   # puts "Total words checked: #{total_words}" #
@@ -105,12 +112,8 @@ def correct(text)
   text
 end
 
-# .txt files are logs of english misspellings for testing
-# input = File.read("wikipedia.txt")
-# input = File.read("aspell.txt")
-# input = File.read("birkbeck.txt")
 input = ARGV.join(" ")
-puts correct(input)
+puts correct(input, frequencies)
 
 # saves a file with the corrected text
 # File.open("corrected.txt", "w+"){ |f| f.write(correct(input))}
