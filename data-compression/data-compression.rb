@@ -27,6 +27,7 @@ def common_words(file, word_count) # builds a hash from file
     compression_hash[i.chr(Encoding::UTF_8)] = word
     i += 1
   end
+  #binding.pry
   compression_hash
 end
 
