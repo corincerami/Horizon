@@ -1,0 +1,11 @@
+
+
+Parse JSON
+
+
+Server:
+-GET requests... each team
+
+ERB files:
+-home
+-team template

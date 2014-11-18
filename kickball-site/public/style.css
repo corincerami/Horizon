@@ -1,0 +1,25 @@
+
+body {
+  text-align: center;
+  padding: 2%;
+  background-image: url("/bg_stars.jpg");
+  color: yellow;
+}
+
+li {
+  display: block;
+
+}
+a {
+  display: block;
+  color: red;
+}
+
+a:hover {
+  color: yellow;
+  -webkit-transform: rotate3d(25,25,25,45deg);
+}
+
+img:hover {
+  border-radius: 50%;
+}

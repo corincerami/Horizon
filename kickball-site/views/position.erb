@@ -1,0 +1,11 @@
+<% position = "#{params[:position]}" %>
+<% position = position.split("-") %>
+<% position.each do |word| %>
+  <% word.capitalize! %>
+<% end %>
+<% position = position.join(" ") %>
+<p><%= "#{position}"%></p>
+<% @teams.each do |team| %>
+  <% players = team["players"]  %>
+  <%= "#{players[position]}" %><br>
+<% end %>

@@ -1,0 +1,7 @@
+<b><%= @teams[@url]["name"] %></b><br/>
+<% @teams[@url]["players"].each do |position,  player| %>
+  <%= "#{player}: #{position}" %> <br/>
+<% end %>
+<%= "<img src= '/#{@teams[@url]["img"]}' />" %>
+<br>
+<a href = "/"> Back to Home Base</a>
