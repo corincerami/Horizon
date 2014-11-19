@@ -60,7 +60,7 @@ if option == "-c"
   # runs the compression method and outputs a message and compression rate
   compression_rate = compress(file, word_count)
   puts "File #{file} was compressed into c-#{file}."
-  puts "File is now #{compression_rate.round(2)} of its original size"
+  puts "File is now #{compression_rate.round(2)}% of its original size"
 elsif option == "-u"
   # runs uncompression file and out a message and checks for losslessness
   uncompressed_file = uncompress(file, word_count)
