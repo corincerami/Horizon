@@ -1,0 +1,7 @@
+<% @articles.each do |title, info| %>
+  <p><%= title %><br>
+  <%= info[1] %><br>
+  <a href="<%= info[0] %>" target="_blank"><%= info[0] %></a></p>
+<% end %>
+<a href="/articles/new">Post a new article</a>
+

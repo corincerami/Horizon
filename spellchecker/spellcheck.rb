@@ -83,7 +83,6 @@ def replace_word(word, frequencies)
   end
   # returns the most frequently used possible word
   if possible_words.length > 0
-    #$corrected_words += 1
     # write corrections to file for inspection, used for testing
     # File.open("corrected.txt", "a"){ |f| f.puts("#{word} to #{possible_words.key(possible_words.values.max)}")}
     return possible_words.key(possible_words.values.max)
@@ -97,7 +96,7 @@ def correct(text, frequencies)
   # total_words = 0 #
   words = text.scan(/\w+/)
   words.each do |word|
-    total_words += 1 #
+    # total_words += 1 #
     unless frequencies.keys.include?(word.downcase)
       text.sub!(word, replace_word(word, frequencies))
     end

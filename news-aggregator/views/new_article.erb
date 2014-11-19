@@ -1,0 +1,16 @@
+<% if @error_messages %>
+  <% @error_messages.each do |message| %>
+    <div class="error"><%= message %></div>
+  <% end %>
+<% end %>
+
+<section id="add">
+  <form action="/articles" method="post">
+    <textarea name="title" placeholder="Article title&hellip;"><%= @title%></textarea>
+    <textarea name="url" placeholder="URL&hellip;"><%= @url %></textarea>
+    <textarea name="description" placeholder="Enter a description&hellip;"><%= @description %></textarea>
+    <input type="submit" value="Share article">
+  </form>
+</section>
+
+<a href="/articles">Go back to all articles</a>

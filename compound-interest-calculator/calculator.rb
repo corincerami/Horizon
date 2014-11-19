@@ -16,9 +16,8 @@ apr = gets.chomp.to_f
 puts "How many years will it accrue interest: "
 years = gets.chomp.to_i
 
-#for i in 1..years
 years.times do
-  principal += principal * (1/apr)
+  principal += principal * (1 / apr)
 end
 
 printf("The final value will be %.2f after #{years} years.\n", principal)

@@ -17,7 +17,7 @@ roster.each do |k, v|
   team_hash = Hash.new
   team_hash["name"] = k
   team_hash["players"] = v
-  teams[k.downcase.gsub(" ", "-" )] =team_hash
+  teams[k.downcase.gsub(" ", "-")] = team_hash
   team_array << team_hash
 end
 

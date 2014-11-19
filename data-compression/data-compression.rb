@@ -16,7 +16,7 @@ end
 
 word_count = count_words(file)
 
-def common_words(file, word_count) # builds a hash from file
+def common_words(word_count) # builds a hash from file
   # saves a hash of the most common words
   number = word_count.length
   most_common = word_count.sort_by { |_, count| count }.reverse.first(number)
@@ -27,13 +27,13 @@ def common_words(file, word_count) # builds a hash from file
     compression_hash[i.chr(Encoding::UTF_8)] = word
     i += 1
   end
-  #binding.pry
+
   compression_hash
 end
 
 def compress(file, word_count)
   original_size = File.read(file).size
-  compression_hash = common_words(file, word_count) # grabs hash from common_words method
+  compression_hash = common_words(word_count) # grabs hash from common_words method
   text = File.read(file) # saves entire file as a string
   compression_hash.each do |char, word| # for each pair in compression_hash
     text.gsub!(word, char) # replace word in file with UTF-8 character
@@ -46,7 +46,7 @@ end
 
 def uncompress(file, word_count) # takes in input from ARGV
   text = File.read("c-#{file}") # saves entire file as a string
-  compression_hash = common_words(file, word_count) # grabs hash from common_words method
+  compression_hash = common_words(word_count) # grabs hash from common_words method
   compression_hash.each do |char, word| # for each pair in compression_hash
     text.gsub!(char, word) # replaces UTF-8 char in text with word
   end
