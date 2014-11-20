@@ -13,7 +13,7 @@ def collect_articles
   articles = {}
   CSV.foreach("news.csv", headers: true) do |row|
     articles[row["title"]] = [
-    row["url"], row["description"]]
+      row["url"], row["description"]]
   end
   articles
 end
@@ -31,8 +31,10 @@ get "/articles/new" do
   erb :new_article
 end
 
-def valid?(url)
-  !!URI.parse(url)
+def valid?(uri)
+  !!URI.parse(uri)
+rescue URI::InvalidURIError
+  false
 end
 
 def check_form_data(title, url, description)
@@ -40,8 +42,8 @@ def check_form_data(title, url, description)
   error_messages << "All fields must be completed" if title == "" || url == "" || description == ""
   error_messages << "Description must be at least 20 characters" if description.length < 20
   articles = collect_articles
-  articles.each do |title, stuff|
-    if stuff[0] == url
+  articles.each do |_, info|
+    if info[0] == url
       error_messages << "That URL has already been submitted"
     end
   end

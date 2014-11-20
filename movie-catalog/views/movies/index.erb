@@ -1,0 +1,17 @@
+<form action="/movies" method="get">
+  <label for="page">Page</label>
+  <input type="text" name="page" id="page"/>
+
+  <input type="submit" value="Jump to page" />
+</form>
+
+<% @page = 1 if @page == 0 %>
+<% current = @page * 20 - 19 %>
+
+<ul>
+  <% @movies = @movies.sort_by { |id, info| info[:title] } %>
+  <% while current < @page * 20 - 1 %>
+    <li><a href="/movies/<%= @movies[current][1][:id] %>"><%= @movies[current][1][:title] %></a></li>
+    <% current += 1 %>
+  <% end %>
+</ul>

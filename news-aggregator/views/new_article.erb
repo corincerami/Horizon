@@ -7,7 +7,7 @@
 <section id="add">
   <form action="/articles" method="post">
     <textarea name="title" placeholder="Article title&hellip;"><%= @title%></textarea>
-    <input type="url" name="url" value="<%= @url %>" placeholder="URL&hellip;">
+    <input type="text" name="url" value="<%= @url %>" placeholder="URL&hellip;">
     <textarea name="description" placeholder="Enter a description&hellip;"><%= @description %></textarea>
     <input type="submit" value="Share article">
   </form>

@@ -1,0 +1,17 @@
+<h1><%= @movie[:title] %></h1>
+<h2>Released: <%= @movie[:year] %></h2>
+
+<p>
+  Produced by : <%= @movie[:studio] %>
+</p>
+<p>
+  Genre: <%= @movie[:genre] %>
+</p>
+<p>
+  Rating: <%= @movie[:rating] %>
+</p>
+<% if @movie[:synopsis] %>
+  <p>
+    <%= "Synopis:<br>#{@movie[:synopsis]}" %>
+  </p>
+<% end %>
