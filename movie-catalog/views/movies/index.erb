@@ -1,12 +1,24 @@
+<% @page = 1 if @page == 0 %> <!-- sets page to 1 initially -->
+<% max_pages = @movies.length / 20 - 1 %> <!-- determines last page -->
+
+<!-- inserts previous page button if page > 1 -->
+<% if @page > 1 %>
+  <a href="/movies/?page=<%= @page - 1 %>">Previous page</a><br><br>
+<% end %>
+
 <form action="/movies" method="get">
   <label for="page">Page</label>
   <input type="text" name="page" id="page"/>
-
   <input type="submit" value="Jump to page" />
 </form>
 
-<% @page = 1 if @page == 0 %>
-<% current = @page * 20 - 19 %>
+<!-- inserts next page button until on last page  -->
+<% if @page <= max_pages %>
+  <a href="/movies/?page=<%= @page + 1 %>">Next Page</a>
+<% end %>
+
+<!-- current movie should start at 0 for page 1, 20 for page 2, etc  -->
+<% current = @page * 20 - 20 %>
 
 <ul>
   <% @movies = @movies.sort_by { |id, info| info[:title] } %>
