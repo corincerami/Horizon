@@ -31,6 +31,10 @@ get "/articles/new" do
   erb :new_article
 end
 
+def valid?(url)
+  !!URI.parse(url)
+end
+
 def check_form_data(title, url, description)
   error_messages = Array.new
   error_messages << "All fields must be completed" if title == "" || url == "" || description == ""
@@ -41,6 +45,7 @@ def check_form_data(title, url, description)
       error_messages << "That URL has already been submitted"
     end
   end
+  error_messages << "You must enter a valid URL" if valid?(url)
   error_messages
 end
 
