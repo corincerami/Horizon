@@ -2,26 +2,28 @@ require "sinatra"
 require "pry"
 require "sinatra/reloader"
 require "csv"
-require "sinatra/flash"
-require "sinatra/redirect_with_flash"
+require "uri"
 
 enable :sessions
 
 SITE_TITLE = "Sick Sad World"
 SITE_DESCRIPTION = "News to Waste Your Time"
 
-articles = {}
+def collect_articles
+  articles = {}
+  CSV.foreach("news.csv", headers: true) do |row|
+    articles[row["title"]] = [
+    row["url"], row["description"]]
+  end
+  articles
+end
 
 get "/" do
   redirect "/articles"
 end
 
 get "/articles" do
-  CSV.foreach("news.csv", headers: true) do |row|
-    articles[row["title"]] = [
-    row["url"], row["description"]]
-  end
-  @articles = articles
+  @articles = collect_articles
   erb :articles
 end
 
@@ -33,7 +35,12 @@ def check_form_data(title, url, description)
   error_messages = Array.new
   error_messages << "All fields must be completed" if title == "" || url == "" || description == ""
   error_messages << "Description must be at least 20 characters" if description.length < 20
-  #error_messages << "URL has already been submitted" if
+  articles = collect_articles
+  articles.each do |title, stuff|
+    if stuff[0] == url
+      error_messages << "That URL has already been submitted"
+    end
+  end
   error_messages
 end
 
