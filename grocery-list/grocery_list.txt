@@ -1,0 +1,7 @@
+bread
+milk
+eggs
+tofu
+cider
+rum
+water

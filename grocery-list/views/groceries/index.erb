@@ -1,0 +1,12 @@
+<ul>
+  <% @groceries.each do |item| %>
+    <li>
+      <%= item %>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/groceries" method="post">
+  <input type="text" name="new_item">
+  <input type="submit" value="Add">
+</form>

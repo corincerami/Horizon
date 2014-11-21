@@ -1,0 +1,27 @@
+h1 {
+    background-color: #ff6600;
+}
+
+#logo {
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  width: 35px;
+  margin: 2px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#login {
+  padding-left: 150px;
+  display: inline-block;
+}
+
+#links {
+  display: inline-block;
+  padding-left: 15px;
+}
+
+body ol {
+  background-color: rgb(246, 246, 239);
+}
