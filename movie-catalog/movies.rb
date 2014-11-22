@@ -35,3 +35,15 @@ get "/movies/:id" do
   @movie = all_movies[params[:id]]
   erb :"movies/show"
 end
+
+post "/movies" do
+  search = params[:search]
+  all_movies = collect_movies
+  @matching_movies = []
+  all_movies.each do |movie|
+    if movie[1][:title].include?(search) #|| movie[1][:synopsis].include?(search)
+      @matching_movies << movie
+    end
+  end
+  @matching_movies
+end

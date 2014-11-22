@@ -1,27 +1,92 @@
 h1 {
     background-color: #ff6600;
+    font-size: 10pt;
+    font-family: Verdana, Geneva, sans-serif;
+    margin-bottom: 0px;
 }
 
 #logo {
   text-align: center;
   color: white;
   border: 1px solid white;
-  width: 35px;
-  margin: 2px;
+  margin: 3px;
   display: inline-block;
-  margin-right: 5px;
+  font-weight: lighter;
+  padding: 2px 5px 2px 5px;
 }
 
 #login {
-  padding-left: 150px;
   display: inline-block;
+  font-weight: lighter;
+  float: right;
+  margin-right: 5px;
+  margin-top: 3px;
 }
 
 #links {
   display: inline-block;
   padding-left: 15px;
+  font-weight: lighter;
+}
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 body ol {
+  margin: 0px 0px 0px 0px;
   background-color: rgb(246, 246, 239);
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+footer {
+  background-color: rgb(246, 246, 239);
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.title {
+  font-size: 10pt;
+  color: #000;
+}
+
+.url {
+  font-size: 8pt;
+  color: #828282;
+  margin-left: 5px;
+}
+
+.comments {
+  color: #828282;
+  font-size: 8pt;
+  margin-left: 15px;
+}
+
+#footer-line {
+  background-color: #ff6600;
+  height: 2px;
+  margin-bottom: 15px;
+}
+
+#more {
+  font-size: 10pt;
+}
+
+li {
+  color: #828282;
+  padding-bottom: 5px;
+  font-size: 10pt;
+}
+
+#footer-links {
+  font-size: 8pt;
+  padding-bottom: 20px;
+}
+
+form {
+  font-size: 10pt;
+  color: #828282;
 }
