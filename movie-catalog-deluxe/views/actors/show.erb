@@ -2,8 +2,9 @@
   <% @actor_info.each do |movie| %>
   <% title = movie["title"] %>
   <% character = movie["character"] %>
+  <% movie_id = movie["id"] %>
     <li>
-      <%= "Movie: <a href='/movies/#{title}'>#{title}</a> | Character: #{character}" %>
+      <%= "Movie: <a href='/movies/#{movie_id}'>#{title}</a> | Character: #{character}" %>
     </li>
   <% end %>
 </ul>
