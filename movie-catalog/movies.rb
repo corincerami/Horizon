@@ -3,6 +3,8 @@ require "sinatra/reloader"
 require "csv"
 require "pry"
 
+SITE_TITLE = "Movie Catalog"
+
 def collect_movies
   all_movies = Hash.new
   CSV.foreach("movies.csv", headers: true) do |row|
@@ -19,12 +21,26 @@ def collect_movies
   all_movies
 end
 
+def search(all_movies, search_term)
+  matching_movies = []
+  all_movies.each do |movie|
+    if movie[1][:title].downcase.include?(search_term.downcase) ||
+        movie[1][:synopsis].to_s.downcase.include?(search_term.downcase)
+      matching_movies << movie
+    end
+  end
+  matching_movies
+end
+
 get "/" do
   redirect "/movies"
 end
 
 get "/movies/?" do
   @movies = collect_movies
+  if params[:search]
+    @movies = search(@movies, params[:search])
+  end
   @page = params[:page].to_i
   erb :"movies/index"
 end
@@ -34,16 +50,4 @@ get "/movies/:id" do
   all_movies = collect_movies
   @movie = all_movies[params[:id]]
   erb :"movies/show"
-end
-
-post "/movies" do
-  search = params[:search]
-  all_movies = collect_movies
-  @matching_movies = []
-  all_movies.each do |movie|
-    if movie[1][:title].include?(search) #|| movie[1][:synopsis].include?(search)
-      @matching_movies << movie
-    end
-  end
-  @matching_movies
 end

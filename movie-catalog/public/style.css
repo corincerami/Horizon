@@ -1,0 +1,11 @@
+* {
+  background-color: #006666;
+}
+
+a {
+  color: #fff;
+}
+
+a:visited {
+  color: purple;
+}

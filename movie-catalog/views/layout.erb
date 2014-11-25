@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf8">
+  <title>Movie Catalog</title>
+  <!-- <link href="/reset.css" rel="stylesheet"> -->
+  <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <hgroup>
+      <h1><a href="/"><%= SITE_TITLE %></a></h1>
+    </hgroup>
+  </header>
+
+  <div id="main">
+    <%= yield %>
+  </div>
+
+  <footer>
+    <p>Contact<br>
+      <small><a href="https://www.github.com/pezcore343" target="_blank">GitHub</a></small><br>
+      <small><a href="http://www.twitter.com/pezcore343" target="_blank">Twitter</a></small>
+    </p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<ul>
+  <% @movies.sort_by { |movie| movie["title"] }.each do |movie| %>
+    <li>
+      <%= movie["title"] %>
+    </li>
+  <% end %>
+</ul>
