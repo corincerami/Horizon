@@ -1,7 +1,8 @@
 <ul>
   <% @movies.sort_by { |movie| movie["title"] }.each do |movie| %>
+  <% title = movie["title"] %>
     <li>
-      <%= movie["title"] %>
+      <%= "<a href='/movies/#{title}'>#{title}</a>" %>
     </li>
   <% end %>
 </ul>

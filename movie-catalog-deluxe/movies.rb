@@ -20,7 +20,6 @@ def select_from_db(query)
   result.to_a
 end
 
-
 get "/" do
   erb :home
 end
@@ -31,13 +30,13 @@ get "/actors" do
   erb :'actors/index'
 end
 
-get "/actors/:id" do
-  actor_name = params[:id]
-  query = 'SELECT movies.title, cast_members.character, actors.name
+get "/actors/:actor_name" do
+  actor_name = params[:actor_name]
+  query = "SELECT movies.title, cast_members.character, actors.name
            FROM actors
            JOIN cast_members ON actors.id = cast_members.actor_id
            JOIN movies ON movies.id = cast_members.movie_id
-           WHERE actors.name = "#{actor_name}";'
+           WHERE actors.name = '#{actor_name}';"
   @actor_info = select_from_db(query)
   erb :'actors/show'
 end
@@ -48,16 +47,16 @@ get "/movies" do
   erb :'movies/index'
 end
 
-get "/movies/:id" do
-  movie_title = params[:id]
-  query = ''
+get "/movies/:title" do
+  movie_title = params[:title]
+  query = "SELECT genres.name AS genre, studios.name AS studio,
+           actors.name AS actor, cast_members.character, movies.title AS title
+           FROM movies
+           JOIN cast_members ON movies.id = cast_members.movie_id
+           JOIN actors ON actors.id = cast_members.actor_id
+           JOIN genres ON genres.id = movies.genre_id
+           JOIN studios ON studios.id = movies.studio_id
+           WHERE movies.title = '#{movie_title}';"
+  @movie_info = select_from_db(query)
   erb :'movies/show'
 end
-
-
-# * Visiting `/actors/:id` will show the details for a given actor. This page should contain a list of movies
-# that the actor has starred in and what their role was. Each movie should link to the details page for that movie.
-
-# * Visiting `/movies/:id` will show the details for the movie. This page should contain information about the movie
-# (including genre and studio) as well as a list of all of the actors and their roles. Each actor name is a link to
-# the details page for that actor.

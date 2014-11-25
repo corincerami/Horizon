@@ -1,7 +1,8 @@
 <ul>
   <% @actors.sort_by{ |actor| actor["name"] }.each do |actor| %>
     <li>
-      <a href=''><%= actor["name"] %>
+      <% actor_name = actor["name"] %>
+      <a href='/actors/<%= "#{actor_name}" %>'><%= actor_name %></a>
     </li>
   <% end %>
 </ul>
