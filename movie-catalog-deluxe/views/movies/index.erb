@@ -1,5 +1,9 @@
+Sort by: <a href='/movies?order=rating'>rating</a> |
+         <a href='movies?order=year'>year</a> |
+         <a href='movies?order=title'>title</a>
 <ul>
-  <% @movies.sort_by { |movie| movie["title"] }.each do |movie| %>
+  <% @sort_choice ||= "title" %>
+  <% @movies.sort_by { |movie| movie["#{@sort_choice}"].to_i }.reverse.each do |movie| %>
   <% title = movie["title"] %>
   <% id = movie["id"] %>
     <li>

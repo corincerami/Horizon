@@ -44,6 +44,7 @@ end
 get "/movies" do
   query = 'SELECT * FROM movies;'
   @movies = select_from_db(query)
+  @sort_choice = params[:order]
   erb :'movies/index'
 end
 
