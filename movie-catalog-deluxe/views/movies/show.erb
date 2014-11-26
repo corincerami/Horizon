@@ -7,8 +7,10 @@
   <% name = actor["actor"] %>
   <% character = actor["character"] %>
   <% actor_id = actor["actor_id"] %>
+  <% if name %>
     <li>
      <%= "<a href='/actors/#{actor_id}'>#{name}</a> as: #{character}" %>
     </li>
+  <% end %>
   <% end %>
 </ul>

@@ -42,9 +42,23 @@ get "/actors/:id" do
 end
 
 get "/movies" do
-  query = 'SELECT * FROM movies;'
+  @sort_choice = params[:order] || "title" # default order to title
+  @page = params[:page] || 1 # default page to 1
+  @page = @page.to_i
+  page_offset = @page * 20 - 20
+  @last_page = (select_from_db("SELECT * FROM movies").length.to_f / 20).ceil
+  search = params[:query]
+  if search
+    query = "SELECT * FROM movies
+             WHERE title LIKE '%#{search}%' OR synopsis LIKE '%#{search}%'
+             ORDER BY #{@sort_choice}
+             OFFSET #{page_offset} LIMIT 20;"
+  else
+    query = "SELECT * FROM movies
+             ORDER BY #{@sort_choice}
+             OFFSET #{page_offset} LIMIT 20;"
+  end
   @movies = select_from_db(query)
-  @sort_choice = params[:order]
   erb :'movies/index'
 end
 
@@ -53,9 +67,9 @@ get "/movies/:id" do
   query = "SELECT genres.name AS genre, studios.name AS studio,
            actors.name AS actor, actors.id AS actor_id, cast_members.character, movies.title AS title
            FROM movies
-           JOIN cast_members ON movies.id = cast_members.movie_id
-           JOIN actors ON actors.id = cast_members.actor_id
-           JOIN genres ON genres.id = movies.genre_id
+           LEFT OUTER JOIN cast_members ON movies.id = cast_members.movie_id
+           LEFT OUTER JOIN actors ON actors.id = cast_members.actor_id
+           LEFT OUTER JOIN genres ON genres.id = movies.genre_id
            LEFT OUTER JOIN studios ON studios.id = movies.studio_id
            WHERE movies.id = '#{movie_id}';"
   @movie_info = select_from_db(query)

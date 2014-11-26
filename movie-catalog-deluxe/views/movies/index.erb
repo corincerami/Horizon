@@ -1,9 +1,25 @@
-Sort by: <a href='/movies?order=rating'>rating</a> |
-         <a href='movies?order=year'>year</a> |
-         <a href='movies?order=title'>title</a>
+<form action='/movies' method='get'>
+  <input type='text' name='query'>
+  <input type='submit' value='Search'>
+</form>
+
+<p>
+  Sort by: <a href='/movies?order=rating'>rating</a> |
+           <a href='movies?order=year'>year</a> |
+           <a href='movies?order=title'>title</a>
+</p>
+
+<!-- pages -->
+<% @page ||= 1 %>
+<% if @page < @last_page %>
+  <a href='/movies?page=<%= "#{@page.to_i + 1}" %>&order=<%="#{@sort_choice}"%>'>Next Page</a>
+<% end %>
+<% if @page > 1 %>
+  <a href='/movies?page=<%= "#{@page.to_i - 1}" %>&order=<%="#{@sort_choice}"%>'>Previous Page</a>
+<% end %>
+
 <ul>
-  <% @sort_choice ||= "title" %>
-  <% @movies.sort_by { |movie| movie["#{@sort_choice}"].to_i }.reverse.each do |movie| %>
+  <% @movies.each do |movie| %>
   <% title = movie["title"] %>
   <% id = movie["id"] %>
     <li>
