@@ -4,18 +4,18 @@
 </form>
 
 <p>
-  Sort by: <a href='/movies?order=rating'>rating</a> |
-           <a href='movies?order=year'>year</a> |
-           <a href='movies?order=title'>title</a>
+  Sort by: <a href='/movies?order=rating&query=<%= "#{@search}" %>'>rating</a> |
+           <a href='movies?order=year&query=<%= "#{@search}" %>'>year</a> |
+           <a href='movies?order=title&query=<%= "#{@search}" %>'>title</a>
 </p>
 
 <!-- pages -->
 <% @page ||= 1 %>
 <% if @page < @last_page %>
-  <a href='/movies?page=<%= "#{@page.to_i + 1}" %>&order=<%="#{@sort_choice}"%>'>Next Page</a>
+  <a href='/movies?page=<%= "#{@page.to_i + 1}" %>&order=<%="#{@sort_choice}"%>&query=<%= "#{@search}" %>'>Next Page</a>
 <% end %>
 <% if @page > 1 %>
-  <a href='/movies?page=<%= "#{@page.to_i - 1}" %>&order=<%="#{@sort_choice}"%>'>Previous Page</a>
+  <a href='/movies?page=<%= "#{@page.to_i - 1}" %>&order=<%="#{@sort_choice}"%>&query=<%= "#{@search}" %>'>Previous Page</a>
 <% end %>
 
 <ul>

@@ -1,3 +1,8 @@
+<form action='/actors' method='get'>
+  <input type="text" name="query">
+  <input type="submit" value="Search">
+</form>
+
 <ul>
   <% @actors.sort_by{ |actor| actor["name"] }.each do |actor| %>
     <li>

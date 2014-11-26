@@ -25,8 +25,17 @@ get "/" do
 end
 
 get "/actors" do
-  query = 'SELECT * FROM actors;'
-  @actors = select_from_db(query)
+  @search = params[:query]
+  if @search
+    query = "SELECT actors.name, actors.id FROM actors
+             LEFT OUTER JOIN cast_members
+             ON cast_members.actor_id = actors.id
+             WHERE actors.name ILIKE '%#{@search}%' OR
+             cast_members.character ILIKE '%#{@search}%';"
+  else
+    query = 'SELECT actors.name, actors.id FROM actors;'
+  end
+  @actors = select_from_db(query).to_a.uniq
   erb :'actors/index'
 end
 
@@ -41,20 +50,47 @@ get "/actors/:id" do
   erb :'actors/show'
 end
 
+# Visiting `/movies` will show a table of movies, sorted alphabetically by title. The table includes the
+# movie title, the year it was released, the rating, the genre, and the studio that produced it. Each movie
+# title is a link to the details page for that movie.
+
 get "/movies" do
-  @sort_choice = params[:order] || "title" # default order to title
-  @page = params[:page] || 1 # default page to 1
-  @page = @page.to_i
-  page_offset = @page * 20 - 20
-  @last_page = (select_from_db("SELECT * FROM movies").length.to_f / 20).ceil
-  search = params[:query]
-  if search
-    query = "SELECT * FROM movies
-             WHERE title LIKE '%#{search}%' OR synopsis LIKE '%#{search}%'
+  #ensures that sort order isn't vulnerable to SQL injection
+  if params[:order] == "title" || params[:order] == "year" || params[:order] == "rating"
+    @sort_choice = params[:order]
+  else
+    @sort_choice = "title"
+  end
+  # ensures page isn't vulnerable to SQL injection
+  @page = params[:page] #
+  if @page.to_i < 1
+    @page = 1
+  else
+    @page = @page.to_i
+  end
+  page_offset = (@page - 1)* 20
+  # need to figure out a good solution for finding the last page to be displayed
+  # @last_page = (.length.to_f / 20).ceil
+  @last_page = select_from_db("SELECT * FROM movies;").length / 20
+  # ****
+  # SEARCH IS STILL VULNERABLE TO SQL INJECTION
+  # ***
+  @search = params[:query]
+  if @search
+    query = "SELECT movies.title, movies.id, movies.year, movies.rating,
+             genres.name AS genre, studios.name AS studio
+             FROM movies
+             LEFT OUTER JOIN genres ON genres.id = movies.genre_id
+             LEFT OUTER JOIN studios ON studios.id = movies.studio_id
+             WHERE title LIKE '%#{@search}%' OR synopsis ILIKE '%#{@search}%'
              ORDER BY #{@sort_choice}
              OFFSET #{page_offset} LIMIT 20;"
   else
-    query = "SELECT * FROM movies
+    query = "SELECT movies.title, movies.id, movies.year, movies.rating,
+             genres.name AS genre, studios.name AS studio
+             FROM movies
+             LEFT OUTER JOIN genres ON genres.id = movies.genre_id
+             LEFT OUTER JOIN studios ON studios.id = movies.studio_id
              ORDER BY #{@sort_choice}
              OFFSET #{page_offset} LIMIT 20;"
   end
