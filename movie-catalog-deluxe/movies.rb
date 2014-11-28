@@ -20,20 +20,37 @@ def select_from_db(query)
   result.to_a
 end
 
+def page_finder
+  @page = params[:page]
+  if @page.to_i < 1
+    @page = 1
+  else
+    # sanitizes page input
+    @page = @page.to_i
+  end
+  page_offset = (@page - 1)* 20
+end
+
 get "/" do
   erb :home
 end
 
 get "/actors" do
   @search = params[:query]
+  page_offset = page_finder
+  @last_page = select_from_db("SELECT * FROM actors;").length / 20
   if @search
     query = "SELECT actors.name, actors.id FROM actors
              LEFT OUTER JOIN cast_members
              ON cast_members.actor_id = actors.id
              WHERE actors.name ILIKE '%#{@search}%' OR
-             cast_members.character ILIKE '%#{@search}%';"
+             cast_members.character ILIKE '%#{@search}%'
+             ORDER BY actors.name
+             OFFSET #{page_offset} LIMIT 20;"
   else
-    query = 'SELECT actors.name, actors.id FROM actors;'
+    query = "SELECT actors.name, actors.id FROM actors
+             ORDER BY actors.name
+             OFFSET #{page_offset} LIMIT 20;"
   end
   @actors = select_from_db(query).to_a.uniq
   erb :'actors/index'
@@ -50,10 +67,6 @@ get "/actors/:id" do
   erb :'actors/show'
 end
 
-# Visiting `/movies` will show a table of movies, sorted alphabetically by title. The table includes the
-# movie title, the year it was released, the rating, the genre, and the studio that produced it. Each movie
-# title is a link to the details page for that movie.
-
 get "/movies" do
   #ensures that sort order isn't vulnerable to SQL injection
   if params[:order] == "title" || params[:order] == "year" || params[:order] == "rating"
@@ -61,14 +74,7 @@ get "/movies" do
   else
     @sort_choice = "title"
   end
-  # ensures page isn't vulnerable to SQL injection
-  @page = params[:page] #
-  if @page.to_i < 1
-    @page = 1
-  else
-    @page = @page.to_i
-  end
-  page_offset = (@page - 1)* 20
+  page_offset = page_finder
   # need to figure out a good solution for finding the last page to be displayed
   # @last_page = (.length.to_f / 20).ceil
   @last_page = select_from_db("SELECT * FROM movies;").length / 20
