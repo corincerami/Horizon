@@ -45,8 +45,8 @@ get "/actors" do
     query = "SELECT DISTINCT actors.name, actors.id FROM actors
              LEFT OUTER JOIN cast_members
              ON cast_members.actor_id = actors.id
-             WHERE actors.name ILIKE '%#{@search}%' OR
-             cast_members.character ILIKE '%#{@search}%'
+             WHERE to_tsvector(actors.name) @@ plainto_tsquery('#{@search}') OR
+             to_tsvector(cast_members.character) @@ plainto_tsquery('#{@search}')
              ORDER BY actors.name
              OFFSET #{page_offset} LIMIT 20;"
   else
@@ -83,6 +83,9 @@ get "/movies" do
   # ****
   # SEARCH IS STILL VULNERABLE TO SQL INJECTION
   # ***
+
+# SELECT * FROM movies WHERE to_tsvector(title) @@ plainto_tsquery('some query here')
+
   @search = params[:query]
   if @search
     query = "SELECT movies.title, movies.id, movies.year, movies.rating,
@@ -90,7 +93,8 @@ get "/movies" do
              FROM movies
              LEFT OUTER JOIN genres ON genres.id = movies.genre_id
              LEFT OUTER JOIN studios ON studios.id = movies.studio_id
-             WHERE title LIKE '%#{@search}%' OR synopsis ILIKE '%#{@search}%'
+             WHERE to_tsvector(title) @@ plainto_tsquery('#{@search}')
+             OR to_tsvector(synopsis) @@ plainto_tsquery('#{@search}')
              ORDER BY #{@sort_choice}
              OFFSET #{page_offset} LIMIT 20;"
   else
