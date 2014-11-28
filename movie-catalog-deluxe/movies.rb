@@ -42,7 +42,7 @@ get "/actors" do
   page_offset = page_finder
   @last_page = select_from_db("SELECT * FROM actors;").length / 20
   if @search
-    query = "SELECT actors.name, actors.id FROM actors
+    query = "SELECT DISTINCT actors.name, actors.id FROM actors
              LEFT OUTER JOIN cast_members
              ON cast_members.actor_id = actors.id
              WHERE actors.name ILIKE '%#{@search}%' OR
@@ -50,7 +50,7 @@ get "/actors" do
              ORDER BY actors.name
              OFFSET #{page_offset} LIMIT 20;"
   else
-    query = "SELECT actors.name, actors.id FROM actors
+    query = "SELECT DISTINCT actors.name, actors.id FROM actors
              ORDER BY actors.name
              OFFSET #{page_offset} LIMIT 20;"
   end
