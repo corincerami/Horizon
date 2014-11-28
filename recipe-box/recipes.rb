@@ -24,7 +24,8 @@ get "/" do
 end
 
 get "/recipes" do
-  query = "SELECT * FROM recipes"
+  query = "SELECT recipes.name, recipes.id FROM recipes
+           ORDER BY name;"
   @recipes = db_connection { |conn| conn.exec(query) }.to_a
   erb :index
 end
