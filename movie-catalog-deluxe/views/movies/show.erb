@@ -1,16 +1,36 @@
-<h1><%= "#{@movie_info[0]['title']}" %></h1>
-<h2><%= "Studio: #{@movie_info[0]['studio']}" %></h2>
-<h2><%= "Genre: #{@movie_info[0]['genre']}" %></h2>
+<div class="row">
+  <div class="large-12 columns">
+    <h1><%= "#{@movie_info[0]['title']}" %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="large-6 columns">
+    <h2><%= "Studio: #{@movie_info[0]['studio']}" %></h2>
+  </div>
+  <div class="large-6 columns">
+    <h2><%= "Genre: #{@movie_info[0]['genre']}" %></h2>
+  </div>
+</div>
 
-<ul>
-  <% @movie_info.each do |actor| %>
-  <% name = actor["actor"] %>
-  <% character = actor["character"] %>
-  <% actor_id = actor["actor_id"] %>
-  <% if name %>
-    <li>
-     <%= "<a href='/actors/#{actor_id}'>#{name}</a> as: #{character}" %>
-    </li>
-  <% end %>
-  <% end %>
-</ul>
+<!-- content -->
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th width="200">Actor</th>
+        <th width="200">Character</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movie_info.each do |actor| %>
+        <% name = actor["actor"] %>
+        <% character = actor["character"] %>
+        <% actor_id = actor["actor_id"] %>
+      <tr>
+        <td><%= "<a href='/actors/#{actor_id}'>#{name}</a>" %></td>
+        <td><%= character %></td>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>
