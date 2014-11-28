@@ -41,25 +41,26 @@ get "/actors" do
   @search = params[:query]
   page_offset = page_finder
   @last_page = select_from_db("SELECT * FROM actors;").length / 20
-  if @search
+  if @search != nil && !@search.empty?
     query = "SELECT DISTINCT actors.name, actors.id FROM actors
              LEFT OUTER JOIN cast_members
              ON cast_members.actor_id = actors.id
-             WHERE to_tsvector(actors.name) @@ plainto_tsquery('#{@search}') OR
-             to_tsvector(cast_members.character) @@ plainto_tsquery('#{@search}')
+             WHERE to_tsvector(actors.name) @@ plainto_tsquery($1) OR
+             to_tsvector(cast_members.character) @@ plainto_tsquery($1)
              ORDER BY actors.name
              OFFSET #{page_offset} LIMIT 20;"
+    @actors = db_connection{ |conn| conn.exec(query, [@search]) }.to_a
   else
     query = "SELECT DISTINCT actors.name, actors.id FROM actors
              ORDER BY actors.name
              OFFSET #{page_offset} LIMIT 20;"
+    @actors = select_from_db(query).to_a
   end
-  @actors = select_from_db(query).to_a
   erb :'actors/index'
 end
 
 get "/actors/:id" do
-  actor_id = params[:id]
+  actor_id = params[:id].to_i
   query = "SELECT movies.title, movies.id, cast_members.character, actors.name
            FROM actors
            LEFT OUTER JOIN cast_members ON actors.id = cast_members.actor_id
@@ -77,26 +78,18 @@ get "/movies" do
     @sort_choice = "title"
   end
   page_offset = page_finder
-  # need to figure out a good solution for finding the last page to be displayed
-  # @last_page = (.length.to_f / 20).ceil
-  @last_page = select_from_db("SELECT * FROM movies;").length / 20
-  # ****
-  # SEARCH IS STILL VULNERABLE TO SQL INJECTION
-  # ***
-
-# SELECT * FROM movies WHERE to_tsvector(title) @@ plainto_tsquery('some query here')
-
   @search = params[:query]
-  if @search
+  if @search != nil && !@search.empty?
     query = "SELECT movies.title, movies.id, movies.year, movies.rating,
              genres.name AS genre, studios.name AS studio
              FROM movies
              LEFT OUTER JOIN genres ON genres.id = movies.genre_id
              LEFT OUTER JOIN studios ON studios.id = movies.studio_id
-             WHERE to_tsvector(title) @@ plainto_tsquery('#{@search}')
-             OR to_tsvector(synopsis) @@ plainto_tsquery('#{@search}')
+             WHERE to_tsvector(title) @@ plainto_tsquery($1)
+             OR to_tsvector(synopsis) @@ plainto_tsquery($1)
              ORDER BY #{@sort_choice}
              OFFSET #{page_offset} LIMIT 20;"
+    @movies = db_connection{ |conn| conn.exec(query, [@search]) }.to_a
   else
     query = "SELECT movies.title, movies.id, movies.year, movies.rating,
              genres.name AS genre, studios.name AS studio
@@ -105,13 +98,13 @@ get "/movies" do
              LEFT OUTER JOIN studios ON studios.id = movies.studio_id
              ORDER BY #{@sort_choice}
              OFFSET #{page_offset} LIMIT 20;"
+    @movies = select_from_db(query)
   end
-  @movies = select_from_db(query)
   erb :'movies/index'
 end
 
 get "/movies/:id" do
-  movie_id = params[:id]
+  movie_id = params[:id].to_i
   query = "SELECT genres.name AS genre, studios.name AS studio,
            actors.name AS actor, actors.id AS actor_id, cast_members.character, movies.title AS title
            FROM movies

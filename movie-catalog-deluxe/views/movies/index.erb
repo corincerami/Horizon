@@ -22,7 +22,8 @@
 <% @page ||= 1 %>
 <div class="row">
   <div class="large-6 columns">
-    <% if @page < @last_page %>
+    <!-- non ideal solution to determine if current page is last page -->
+    <% if @movies.length == 20 %>
       <a href='/movies?page=<%= "#{@page.to_i + 1}" %>&order=<%="#{@sort_choice}"%>&query=<%= "#{@search}" %>'
          class="small button">Next Page</a>
   <% end %>

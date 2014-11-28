@@ -12,7 +12,7 @@
 <% @page ||= 1 %>
 <div class="row">
   <div class="large-6 columns">
-    <% if @page < @last_page %>
+    <% if @actors.length == 20 %>
       <a href='/actors?page=<%= "#{@page.to_i + 1}" %>&query=<%= "#{@search}" %>' class="small button">Next Page</a>
     <% end %>
     <% if @page > 1 %>
