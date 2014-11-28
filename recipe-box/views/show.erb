@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h3><%= @recipe_info[0]["recipe"] %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 columns">
+    <p><%= @recipe_info[0]["description"] %></p>
+  </div>
+  <div class="large-6 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Ingredients</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe_info.each do |recipe| %>
+          <tr>
+            <td><%= recipe["ingredients"] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <p><%= @recipe_info[0]["instructions"] %></p>
+  </div>
+</div>

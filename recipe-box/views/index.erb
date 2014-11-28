@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="large-12 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Recipe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipes.each do |recipe| %>
+          <tr>
+            <td><a href='recipes/<%= recipe["id"] %>'><%= recipe["name"] %></a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
