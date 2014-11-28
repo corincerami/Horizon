@@ -1,23 +1,42 @@
+<!-- search form -->
 <form action='/actors' method='get'>
-  <input type="text" name="query">
-  <input type="submit" value="Search">
+  <div class="row">
+    <div class="large-4 columns">
+      <input type="text" name="query">
+      <input type="submit" value="Search" class="small button">
+    </div>
+  </div>
 </form>
 
 <!-- pages -->
 <% @page ||= 1 %>
-<% if @page < @last_page %>
-  <a href='/actors?page=<%= "#{@page.to_i + 1}" %>&query=<%= "#{@search}" %>'>Next Page</a>
-<% end %>
-<% if @page > 1 %>
-  <a href='/actors?page=<%= "#{@page.to_i - 1}" %>&query=<%= "#{@search}" %>'>Previous Page</a>
-<% end %>
+<div class="row">
+  <div class="large-6 columns">
+    <% if @page < @last_page %>
+      <a href='/actors?page=<%= "#{@page.to_i + 1}" %>&query=<%= "#{@search}" %>' class="small button">Next Page</a>
+    <% end %>
+    <% if @page > 1 %>
+      <a href='/actors?page=<%= "#{@page.to_i - 1}" %>&query=<%= "#{@search}" %>' class="small button">Previous Page</a>
+    <% end %>
+  </div>
+</div>
 
-<ul>
-  <% @actors.sort_by{ |actor| actor["name"] }.each do |actor| %>
-    <li>
-      <% actor_name = actor["name"] %>
-      <% actor_id = actor["id"] %>
-      <a href='/actors/<%= "#{actor_id}" %>'><%= actor_name %></a>
-    </li>
-  <% end %>
-</ul>
+<!-- content -->
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th width="200">Actors</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @actors.sort_by{ |actor| actor["name"] }.each do |actor| %>
+        <% actor_name = actor["name"] %>
+        <% actor_id = actor["id"] %>
+        <tr>
+          <td><a href='/actors/<%= "#{actor_id}" %>'><%= actor_name %></a></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

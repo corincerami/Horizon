@@ -3,6 +3,8 @@ require 'pry'
 require 'sinatra/reloader'
 require 'pg'
 
+# duplicate actors appearing on index page
+
 def db_connection
   begin
     connection = PG.connect(dbname: 'movies')
@@ -52,7 +54,7 @@ get "/actors" do
              ORDER BY actors.name
              OFFSET #{page_offset} LIMIT 20;"
   end
-  @actors = select_from_db(query).to_a.uniq
+  @actors = select_from_db(query).to_a
   erb :'actors/index'
 end
 
