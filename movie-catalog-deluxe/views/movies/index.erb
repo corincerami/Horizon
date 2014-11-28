@@ -1,29 +1,67 @@
+<!-- search form -->
 <form action='/movies' method='get'>
-  <input type='text' name='query'>
-  <input type='submit' value='Search'>
+  <div class="row">
+    <div class="large-4 columns">
+      <input type='text' name='query'>
+      <input type='submit' value='Search' class="small button">
+    </div>
+  </div>
 </form>
 
-<p>
-  Sort by: <a href='/movies?order=rating&query=<%= "#{@search}" %>'>rating</a> |
-           <a href='movies?order=year&query=<%= "#{@search}" %>'>year</a> |
-           <a href='movies?order=title&query=<%= "#{@search}" %>'>title</a>
-</p>
+<!-- sort options -->
+<div class="row">
+  <div class="large-6 columns">
+  Sort by:<br>
+   <a href='/movies?order=rating&query=<%= "#{@search}" %>' class="small button">rating</a>
+   <a href='movies?order=year&query=<%= "#{@search}" %>' class="small button">year</a>
+   <a href='movies?order=title&query=<%= "#{@search}" %>' class="small button">title</a>
+ </div>
+</div>
 
 <!-- pages -->
 <% @page ||= 1 %>
-<% if @page < @last_page %>
-  <a href='/movies?page=<%= "#{@page.to_i + 1}" %>&order=<%="#{@sort_choice}"%>&query=<%= "#{@search}" %>'>Next Page</a>
-<% end %>
-<% if @page > 1 %>
-  <a href='/movies?page=<%= "#{@page.to_i - 1}" %>&order=<%="#{@sort_choice}"%>&query=<%= "#{@search}" %>'>Previous Page</a>
-<% end %>
-
-<ul>
-  <% @movies.each do |movie| %>
-  <% title = movie["title"] %>
-  <% id = movie["id"] %>
-    <li>
-      <%= "<a href='/movies/#{id}'>#{title}</a>" %>
-    </li>
+<div class="row">
+  <div class="large-6 columns">
+    <% if @page < @last_page %>
+      <a href='/movies?page=<%= "#{@page.to_i + 1}" %>&order=<%="#{@sort_choice}"%>&query=<%= "#{@search}" %>'
+         class="small button">Next Page</a>
   <% end %>
-</ul>
+  <% if @page > 1 %>
+      <a href='/movies?page=<%= "#{@page.to_i - 1}" %>&order=<%="#{@sort_choice}"%>&query=<%= "#{@search}" %>'
+         class="small button">Previous Page</a>
+  <% end %>
+ </div>
+</div>
+
+
+<!-- content -->
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th width="200">Title</th>
+        <th width="100">Year</th>
+        <th width="100">Rating</th>
+        <th width="150">Genre</th>
+        <th width="150">Studio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+      <% title = movie["title"] %>
+      <% id = movie["id"] %>
+      <% year = movie["year"] %>
+      <% rating = movie["rating"] %>
+      <% genre = movie["genre"] %>
+      <% studio = movie["studio"] %>
+        <tr>
+          <td><%= "<a href='/movies/#{id}'>#{title}</a>" %></td>
+          <td><%= year %></td>
+          <td><%= rating %></td>
+          <td><%= genre %></td>
+          <td><%= studio %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
