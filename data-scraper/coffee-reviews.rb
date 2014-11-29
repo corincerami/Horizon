@@ -20,30 +20,35 @@ end
 puts ""
 
 # finds the most common words in reviews
-def count_words(file, stop_words)
+def count_words(reviews, stop_words)
   word_hash = Hash.new(0)
-  File.read(file).scan(/\w+/).each do |word|
-    unless stop_words.include?(word.downcase)
-      word_hash[word.downcase] += 1
+  reviews.each do |review|
+    review.split(" ").each do |word|
+      unless stop_words.include?(word.downcase)
+        word_hash[word.downcase] += 1
+      end
     end
   end
-  word_hash.sort_by { |word, count| -count }.first(30)
+  word_hash.sort_by { |word, count| -count }.first(10)
 end
 
 # these were common words found that didn't seem to contribute to a review's sentiment
 stop_words = ["the", "i", "and", "a", "it", "to", "is", "of", "br", "you", "this", "that", "for", "in", "on", "t",
               "s", "but", "have", "with", "if", "my", "div", "when", "can", "about", "so", "one", "has", "as", "too",
-              "just", "be", "back", "was", "or", "are", "your", "out", "there", "reviewtext"]
+              "just", "be", "back", "was", "or", "are", "your", "out", "there", "reviewtext", "from", "lid", "will", "after", "all"]
 
-common_words = count_words("sentences.xml", stop_words)
+common_words = count_words(review_sentences, stop_words)
 
-sentences = []
+sentences = Hash.new(0)
 review_sentences.each do |sentence|
   common_words.each do |word|
     if sentence.split(" ").include?(word[0])
-      sentences << sentence
+      sentences[sentence] += 1
     end
   end
 end
 
-puts review_sentences.uniq!.first(10)
+sentences.sort_by { |sentence, count| -count }.first(10).each do |array|
+  puts array[0]
+end
+
