@@ -2,17 +2,20 @@
 require "net/http"
 require "nokogiri"
 require "open-uri"
+require "pry"
 
 doc = Nokogiri::HTML(open("http://www.amazon.com/Drip-Coffee-Machines-Makers/b?ie=UTF8&node=289745"))
 
 results = doc.css("span.a-declarative a").map { |link| link['href'] }
+puts results.length
 
 # finds the individual sentences from all reviews
-results.each do |url|
-  review_doc = Nokogiri::HTML(open(url))
+review_sentences = results.each do |url|
+  review_doc = Nokogiri::HTML(open(url, {"User-Agent" => "Some Browser"}))
   ratings = review_doc.css("span.crAvgStars a")
   reviews = review_doc.css("div.reviewText")
   review_sentences = reviews.to_s.split(".")
+  puts "url checked"
 end
 
 # finds the most common words in reviews
@@ -32,5 +35,3 @@ stop_words = ["the", "i", "and", "a", "it", "to", "is", "of", "br", "you", "this
               "just", "be", "back", "was", "or", "are", "your", "out", "there", "reviewtext"]
 
 common_words = count_words("sentences.xml", stop_words)
-
-puts review_sentences
