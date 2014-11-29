@@ -42,16 +42,22 @@ get "/actors" do
   page_offset = page_finder
   @last_page = select_from_db("SELECT * FROM actors;").length / 20
   if @search != nil && !@search.empty?
-    query = "SELECT DISTINCT actors.name, actors.id FROM actors
+    query = "SELECT DISTINCT actors.name, actors.id, COUNT(cast_members.character)
+             FROM actors
              LEFT OUTER JOIN cast_members
              ON cast_members.actor_id = actors.id
              WHERE to_tsvector(actors.name) @@ plainto_tsquery($1) OR
              to_tsvector(cast_members.character) @@ plainto_tsquery($1)
+             GROUP BY actors.name, actors.id
              ORDER BY actors.name
              OFFSET #{page_offset} LIMIT 20;"
     @actors = db_connection{ |conn| conn.exec(query, [@search]) }.to_a
   else
-    query = "SELECT DISTINCT actors.name, actors.id FROM actors
+    query = "SELECT DISTINCT actors.name, actors.id, COUNT(cast_members.character)
+             FROM actors
+             LEFT OUTER JOIN cast_members
+             ON cast_members.actor_id = actors.id
+             GROUP BY actors.name, actors.id
              ORDER BY actors.name
              OFFSET #{page_offset} LIMIT 20;"
     @actors = select_from_db(query).to_a

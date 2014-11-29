@@ -27,14 +27,17 @@
     <thead>
       <tr>
         <th width="200">Actors</th>
+        <th>Named Characters</th>
       </tr>
     </thead>
     <tbody>
       <% @actors.sort_by{ |actor| actor["name"] }.each do |actor| %>
         <% actor_name = actor["name"] %>
         <% actor_id = actor["id"] %>
+        <% actor_roles = actor["count"] %>
         <tr>
           <td><a href='/actors/<%= "#{actor_id}" %>'><%= actor_name %></a></td>
+          <td><%= actor_roles %></td>
         </tr>
       <% end %>
     </tbody>
