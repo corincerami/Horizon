@@ -40,7 +40,6 @@ end
 get "/actors" do
   @search = params[:query]
   page_offset = page_finder
-  @last_page = select_from_db("SELECT * FROM actors;").length / 20
   if @search != nil && !@search.empty?
     query = "SELECT DISTINCT actors.name, actors.id, COUNT(cast_members.character)
              FROM actors
