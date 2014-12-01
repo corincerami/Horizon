@@ -12,7 +12,7 @@ class Album
   def duration_min
     @duration_min = 0.0
     @tracks.each do |track|
-      @duration_min += track[:duration_ms].to_f / 60000
+      @duration_min += track.duration_ms.to_f / 60000
     end
     @duration_min
   end
@@ -20,7 +20,7 @@ class Album
   def summary
     @summary = "Name: #{@title}\nArtist(s): #{@artists}\nDuration (min.): #{self.duration_min.round(2)}\nTracks:\n"
     @tracks.each do |track|
-      @summary << "-  #{track[:title]}\n"
+      @summary << "-  #{track.title}\n"
     end
     @summary
   end
