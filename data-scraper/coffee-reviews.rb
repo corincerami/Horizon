@@ -35,10 +35,12 @@ end
 # these were common words found that didn't seem to contribute to a review's sentiment
 stop_words = ["the", "i", "and", "a", "it", "to", "is", "of", "br", "you", "this", "that", "for", "in", "on", "t",
               "s", "but", "have", "with", "if", "my", "div", "when", "can", "about", "so", "one", "has", "as", "too",
-              "just", "be", "back", "was", "or", "are", "your", "out", "there", "reviewtext", "from", "lid", "will", "after", "all"]
+              "just", "be", "back", "was", "or", "are", "your", "out", "there", "reviewtext", "from", "lid", "will",
+              "after", "all"]
 
 common_words = count_words(review_sentences, stop_words)
 
+# builds a hash of sentences with the highest frequency of common words
 sentences = Hash.new(0)
 review_sentences.each do |sentence|
   common_words.each do |word|
@@ -51,4 +53,3 @@ end
 sentences.sort_by { |sentence, count| -count }.first(10).each do |array|
   puts array[0]
 end
-
