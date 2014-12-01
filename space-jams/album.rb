@@ -19,6 +19,10 @@ class Album
 
   def summary
     @summary = "Name: #{@title}\nArtist(s): #{@artists}\nDuration (min.): #{self.duration_min.round(2)}\nTracks:\n"
+    @tracks.each do |track|
+      @summary << "-  #{track[:title]}\n"
+    end
+    @summary
   end
 
 end
