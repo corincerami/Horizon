@@ -1,14 +1,6 @@
-def db_connection
-  begin
-    connection = PG.connect(dbname: 'recipes')
-
-    yield(connection)
-  ensure
-    connection.close
-  end
-end
-
 class Recipe
+  attr_reader :name, :id, :instructions, :ingredients, :description
+
   def initialize(name, id, instructions, ingredients, description)
     @name = name
     @id = id
@@ -18,39 +10,26 @@ class Recipe
   end
 
   def self.all
-    query =
-      "SELECT DISTINCT
-        recipes.name AS recipe_name,
-        recipes.id AS id,
-        recipes.instructions AS instructions,
-        recipes.description AS description
-      FROM
-        recipes
-      ORDER BY
-        recipes.name;"
-    recipes = db_connection { |conn| conn.exec(query) }
+    query = "SELECT DISTINCT name, id, instructions, description
+             FROM recipes ORDER BY recipes.name;"
+    recipes = DBConnection.connect("recipes") { |conn| conn.exec(query) }
     collection = []
     recipes.each do |recipe|
-      collection << Recipe.new(recipe['recipe_name'], recipe['id'],
+      collection << Recipe.new(recipe['name'], recipe['id'],
                                recipe['instructions'], recipe['ingredient'],
                                recipe['description'])
     end
-
     collection
   end
 
   def self.find(id)
-    query = "SELECT recipes.name AS recipe, recipes.description,
-           recipes.instructions
-           FROM recipes
-           WHERE recipes.id = $1"
-    recipe = db_connection { |conn| conn.exec(query, [id]) }[0]
+    query = "SELECT name, description, instructions
+             FROM recipes WHERE recipes.id = $1"
+    recipe = DBConnection.connect("recipes") { |conn| conn.exec(query, [id]) }[0]
     ingredients_query = "SELECT * FROM ingredients
                          WHERE recipe_id = $1"
-    ingredients = db_connection { |conn| conn.exec(ingredients_query, [id]) }
-    Recipe.new(recipe['recipe'], recipe['id'], recipe['instructions'],
+    ingredients = DBConnection.connect("recipes") { |conn| conn.exec(ingredients_query, [id]) }
+    Recipe.new(recipe['name'], recipe['id'], recipe['instructions'],
                ingredients, recipe['description'])
   end
-
-  attr_reader :name, :id, :instructions, :ingredients, :description
 end

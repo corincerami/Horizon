@@ -4,6 +4,7 @@ require 'pg'
 
 require_relative 'models/recipe'
 require_relative 'models/ingredient'
+require_relative 'models/db_connection'
 
 configure :development, :test do
   require 'pry'
