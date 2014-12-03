@@ -19,8 +19,8 @@ while player_hand.score < 21
   response = gets.chomp.downcase
   if response == "h"
     new_card = deck.cards.pop
-    player_hand.calculate_value(new_card)
     player_hand.cards << new_card
+    player_hand.calculate_value
     puts "Player was dealt #{new_card.number} of #{new_card.suit}"
   elsif response == "s"
     puts "Player stands"
@@ -48,8 +48,8 @@ while dealer_hand.score < 21
   puts "Dealer's score: #{dealer_hand.score}"
   if dealer_hand.score < 17
     new_card = deck.cards.pop
-    dealer_hand.calculate_value(new_card)
     dealer_hand.cards << new_card
+    dealer_hand.calculate_value
     puts "Dealer was dealt #{new_card.number} of #{new_card.suit}"
   else
     puts "Dealer stands"
