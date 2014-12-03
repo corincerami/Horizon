@@ -2,7 +2,7 @@ class Hand
   attr_reader :cards, :score
   def initialize(cards)
     @cards = cards
-    @score = calculate_value
+    calculate_value
   end
 
   def calculate_value
@@ -15,11 +15,8 @@ class Hand
       end
     end
     @cards.each do |card|
-      if card.ace?
-        aces_value(card)
-      end
+      aces_value(card) if card.ace?
     end
-    @score
   end
 
   def aces_value(card)
