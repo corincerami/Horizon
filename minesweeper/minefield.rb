@@ -31,10 +31,10 @@ class Minefield
     @adjacent_cells = [[row - 1, col - 1], [row, col - 1], [row + 1, col - 1],
                       [row - 1, col], [row + 1, col],
                       [row - 1, col + 1], [row, col + 1], [row + 1, col + 1]]
-    @cleared_cells << [row, col]
     @adjacent_cells.each do |cell|
-      @cleared_cells << cell unless @mine_cells.include?(cell)
+      @cleared_cells << cell if !@mine_cells.include?(cell) && !@cleared_cells.include?([row, col])
     end
+    @cleared_cells << [row, col]
   end
 
   # Check if any cells have been uncovered that also contained a mine. This is
