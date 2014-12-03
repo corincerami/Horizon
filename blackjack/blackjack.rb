@@ -4,42 +4,69 @@ require_relative "card"
 require_relative "deck"
 require_relative "hand"
 
-  suits = ["hearts", "diamonds", "spades", "clubs"]
-  numbers = ["A", "2", "3", "4", "5", "6", "7",
-             "8", "9", "10", "J", "Q", "K"]
+deck = Deck.new
 
-deck = Deck.new(suits, numbers)
-
+# dealing two cards to player for initial hand
 player_hand = Hand.new(deck.cards.pop(2))
 player_hand.cards.each do |card|
-  puts "Player was dealt #{card.number} #{card.suit}"
+  puts "Player was dealt #{card.number} of #{card.suit}"
 end
 
-dealer_hand = Hand.new(deck.cards.pop(2))
-dealer_hand.cards.each do |card|
-  puts "Dealer was dealt #{card.number} #{card.suit}"
-end
-
-binding.pry
-
+# prompt player to hit or stand until stand or bust
 while player_hand.score < 21
   puts "Player's score: #{player_hand.score}"
-  puts "Hit or stand (H/S): "
+  print "Hit or stand (H/S): "
   response = gets.chomp.downcase
   if response == "h"
     new_card = deck.cards.pop
-    hand.calculate_value(new_card)
+    player_hand.calculate_value(new_card)
     player_hand.cards << new_card
-    puts "Player was dealt #{card.number} #{card.suit}"
+    puts "Player was dealt #{new_card.number} of #{new_card.suit}"
   elsif response == "s"
+    puts "Player stands"
+    puts "Player's score: #{player_hand.score}"
     break
   else
-    puts "Please enter either y or n"
+    puts "Please enter either h or s"
   end
 end
 
-def who_won
-
+# check if player has busted
+if player_hand.busted?
+  puts "Bust. You lose..."
+  exit
 end
 
-who_won
+# deal two cards to dealer as initial hand
+dealer_hand = Hand.new(deck.cards.pop(2))
+dealer_hand.cards.each do |card|
+  puts "Dealer was dealt #{card.number} of #{card.suit}"
+end
+
+# dealer hits or stands until bust or stand
+while dealer_hand.score < 21
+  puts "Dealer's score: #{dealer_hand.score}"
+  if dealer_hand.score < 17
+    new_card = deck.cards.pop
+    dealer_hand.calculate_value(new_card)
+    dealer_hand.cards << new_card
+    puts "Dealer was dealt #{new_card.number} of #{new_card.suit}"
+  else
+    puts "Dealer stands"
+    break
+  end
+end
+
+def who_won(player_hand, dealer_hand)
+  if player_hand.score > dealer_hand.score
+    "You win"
+  elsif dealer_hand.score > player_hand.score && !dealer_hand.busted?
+    "Dealer wins"
+  elsif dealer_hand.busted?
+    "Bust. You win"
+  elsif player_hand.score == dealer_hand.score
+    "Push. No one wins."
+  end
+end
+
+puts who_won(player_hand, dealer_hand)

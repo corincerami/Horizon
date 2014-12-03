@@ -4,7 +4,7 @@ class Hand
     @cards = cards
     @score = 0
     @cards.each do |card|
-      @score += calculate_value(card)
+      calculate_value(card)
     end
   end
 
@@ -16,7 +16,6 @@ class Hand
     else
       value = card.number.to_i
     end
-    binding.pry
     @score += value
   end
 
@@ -26,6 +25,10 @@ class Hand
     elsif @score <= 10 && card.ace?
       11
     end
+  end
+
+  def busted?
+    @score > 21
   end
 
 end
