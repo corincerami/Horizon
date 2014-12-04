@@ -7,6 +7,7 @@ require "pry"
 doc = Nokogiri::HTML(open("http://www.amazon.com/Drip-Coffee-Machines-Makers/b?ie=UTF8&node=289745"))
 
 results = doc.css("span.a-declarative a").map { |link| link['href'] }
+binding.pry
 
 # finds the individual sentences from all reviews
 review_sentences = []
