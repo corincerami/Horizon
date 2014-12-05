@@ -7,13 +7,12 @@ require "pry"
 doc = Nokogiri::HTML(open("http://www.amazon.com/Drip-Coffee-Machines-Makers/b?ie=UTF8&node=289745"))
 
 results = doc.css("span.a-declarative a").map { |link| link['href'] }
-binding.pry
+
 
 # finds the individual sentences from all reviews
 review_sentences = []
 results.each do |url|
   review_doc = Nokogiri::HTML(open(url, {"User-Agent" => "Some Browser"}))
-  ratings = review_doc.css("span.crAvgStars a")
   reviews = review_doc.css("div.reviewText")
   review_sentences = reviews.to_s.split(".")
   print "."
@@ -37,9 +36,11 @@ end
 stop_words = ["the", "i", "and", "a", "it", "to", "is", "of", "br", "you", "this", "that", "for", "in", "on", "t",
               "s", "but", "have", "with", "if", "my", "div", "when", "can", "about", "so", "one", "has", "as", "too",
               "just", "be", "back", "was", "or", "are", "your", "out", "there", "reviewtext", "from", "lid", "will",
-              "after", "all"]
+              "after", "all", "not"]
 
 common_words = count_words(review_sentences, stop_words)
+
+puts common_words
 
 # builds a hash of sentences with the highest frequency of common words
 sentences = Hash.new(0)
