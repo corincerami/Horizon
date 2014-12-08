@@ -40,6 +40,15 @@ end
 
 get '/meetups/:id' do
   @meetup = Meetup.find(params[:id])
+  @current_user_attending = MeetupUser.find_by(user_id: session[:user_id],
+                                               meetup_id: @meetup.id)
+  all_attendees = MeetupUser.where(meetup_id: @meetup.id)
+  @other_attendees = Array.new
+  all_attendees.each do |attendee|
+    unless attendee.user_id == session[:user_id]
+      @other_attendees << User.find_by(id: attendee.user_id)
+    end
+  end
   erb :"meetups/show"
 end
 

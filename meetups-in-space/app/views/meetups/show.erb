@@ -4,10 +4,19 @@
 <div><%= @meetup.location %></div>
 <div><%= @meetup.description %></div>
 
-<% if MeetupUser.find_by(user_id: session[:user_id], meetup_id: @meetup.id) %>
+<% if @current_user_attending %>
   <p>You are attending this Muppet!</p>
 <% else %>
   <form action="/meetups/<%= @meetup.id %>/join" method='post'>
     <input type='submit' value='Join this Muppet'>
   </form>
+<% end %>
+
+<h3>Who Else is Attending?</h3>
+
+<% @other_attendees.each do |attendee| %>
+  <div>
+    <div><img src="<%= attendee.avatar_url %>"></div>
+    <%= attendee.username %>
+  </div>
 <% end %>
