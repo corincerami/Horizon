@@ -6,6 +6,9 @@
 
 <% if @current_user_attending %>
   <p>You are attending this Muppet!</p>
+  <form action="/meetups/<%= @meetup.id %>/leave" method='post'>
+    <input type='submit' value='Leave this Muppet'>
+  </form>
 <% else %>
   <form action="/meetups/<%= @meetup.id %>/join" method='post'>
     <input type='submit' value='Join this Muppet'>

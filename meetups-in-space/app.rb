@@ -73,6 +73,14 @@ post '/meetups/:meetup_id/join' do
   redirect "/meetups/#{params[:meetup_id]}"
 end
 
+post '/meetups/:meetup_id/leave' do
+  meetup_user_id = MeetupUser.where(user_id: session[:user_id],
+                                    meetup_id: params[:meetup_id]).first.id
+  MeetupUser.destroy(meetup_user_id)
+  flash[:notice] = "You have left this Muppet successfully"
+  redirect "/meetups/#{params[:meetup_id]}"
+end
+
 get '/auth/github/callback' do
   auth = env['omniauth.auth']
 
