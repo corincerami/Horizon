@@ -49,17 +49,18 @@ post '/meetups' do
                              location: params[:location],
                              description: params[:description])
   meetup_id = meetup.id
-  if meetup.errors
+  if !meetup.save
     flash[:error] = meetup.errors.full_messages
     redirect '/meetups/create'
   else
-  flash[:notice] = 'Muppet added successfully'
-  redirect "/meetups/#{meetup_id}"
+    flash[:notice] = 'Muppet added successfully'
+    redirect "/meetups/#{meetup_id}"
   end
 end
 
 post '/meetups/:meetup_id/join' do
   MeetupUser.create(user_id: session[:user_id], meetup_id: params[:meetup_id])
+  flash[:notice] = "You have joined this Muppet successfully"
   redirect "/meetups/#{params[:meetup_id]}"
 end
 

@@ -27,8 +27,11 @@
 <% if flash.any? %>
   <div class="flash">
     <div class="container">
-      <%= flash[:notice] %>
-      <%= flash[:error].join("<br>") %>
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% elsif flash[:error] %>
+        <%= flash[:error].join("<br>") %>
+      <% end %>
     </div>
   </div>
 <% end %>
