@@ -1,0 +1,13 @@
+<h1>Check Out This Muppet!</h1>
+
+<div><%= @meetup.name %></div>
+<div><%= @meetup.location %></div>
+<div><%= @meetup.description %></div>
+
+<% if MeetupUser.find_by(user_id: session[:user_id], meetup_id: @meetup.id) %>
+  <p>You are attending this Muppet!</p>
+<% else %>
+  <form action="/meetups/<%= @meetup.id %>/join" method='post'>
+    <input type='submit' value='Join this Muppet'>
+  </form>
+<% end %>
