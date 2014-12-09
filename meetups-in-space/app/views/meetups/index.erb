@@ -1,15 +1,15 @@
 <h1><%= @title %></h1>
 
-<div class='button'>
-  <a href='/meetups/create'>Add a New Muppet!</a>
-</div>
-
-<% Meetup.all.order(:name).each do |meetup| %>
-  <div>
-    <p><a href='/meetups/<%= meetup.id %>'><%= meetup.name %></p>
-  </div>
-<% end %>
-
 <div>
   <img class='animal' src='http://img3.wikia.nocookie.net/__cb20091114210201/muppet/images/6/64/Animal_bluebackground.jpg'>
+</div>
+
+<div class='main-content'>
+  <a href='/meetups/create'><button>Add a New Muppet!</button></a>
+
+  <% Meetup.all.order(:name).each do |meetup| %>
+    <div>
+      <p><a href='/meetups/<%= meetup.id %>'><%= meetup.name %></a></p>
+    </div>
+  <% end %>
 </div>

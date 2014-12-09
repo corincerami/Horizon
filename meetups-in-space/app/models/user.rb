@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :meetup_users
   has_many :meetups, through: :meetup_users
+  has_many :comments
 
   def self.find_or_create_from_omniauth(auth)
     provider = auth.provider

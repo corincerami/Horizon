@@ -39,3 +39,22 @@ a:visited {
   background-color: #3B9089;
 }
 
+.button {
+  background-color: gray;
+  color: white;
+  padding: 5px;
+  width: 150px;
+}
+
+.animal {
+  float:  right;
+  display: inline-block;
+}
+
+.main-content {
+  width: 250px;
+}
+
+.guest-list {
+  float: right;
+}

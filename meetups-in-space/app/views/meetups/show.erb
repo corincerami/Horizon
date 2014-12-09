@@ -1,25 +1,57 @@
 <h1>Check Out This Muppet!</h1>
 
+<div class='guest-list'>
+  <h3>Who Else is Attending?</h3>
+  <% @attendees.each do |attendee| %>
+    <% unless attendee.id == session[:user_id] %>
+      <div><img wisth='150' height='150' src="<%= attendee.avatar_url %>"></div>
+      <%= attendee.username %>
+    <% end %>
+  <% end %>
+</div>
+
 <div><%= @meetup.name %></div>
 <div><%= @meetup.location %></div>
 <div><%= @meetup.description %></div>
 
-<% if @current_user_attending %>
-  <p>You are attending this Muppet!</p>
-  <form action="/meetups/<%= @meetup.id %>/leave" method='post'>
-    <input type='submit' value='Leave this Muppet'>
-  </form>
-<% else %>
-  <form action="/meetups/<%= @meetup.id %>/join" method='post'>
-    <input type='submit' value='Join this Muppet'>
-  </form>
-<% end %>
-
-<h3>Who Else is Attending?</h3>
-
-<% @other_attendees.each do |attendee| %>
+<% if @user_attending %>
   <div>
-    <div><img src="<%= attendee.avatar_url %>"></div>
-    <%= attendee.username %>
+    <p>You are attending this Muppet!</p>
+    <form action="/meetups/<%= @meetup.id %>/leave" method='post'>
+      <input type='submit' value='Leave this Muppet'>
+    </form>
+  </div>
+<% else %>
+  <div>
+    <form action="/meetups/<%= @meetup.id %>/join" method='post'>
+      <input type='submit' value='Join this Muppet'>
+    </form>
   </div>
 <% end %>
+
+<div class='comments'>
+  <h3>Comments</h3>
+
+  <% if @user_attending %>
+    <form action='/meetups/<%= @meetup.id %>/comment' method='post'>
+      <input type='text' name='comment' placeholder='Leave a comment'>
+      <input type='submit' value='Submit Comment'>
+    </form>
+  <% else %>
+    <p>You must be a member of a Muppet to comment.</p>
+  <% end %>
+
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+      <div class='comment-box'>
+        <p class='comment'>
+          <%= comment.content %>
+        </p>
+        <p class='comment-poster'>
+          Posted by <%= User.find(comment.user_id).username %> at <%= comment.created_at %>
+        </p>
+        _________________________________________________________________
+      </div>
+    <% end %>
+  <% end %>
+</div>

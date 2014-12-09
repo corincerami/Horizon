@@ -29,31 +29,29 @@ def authenticate!
   end
 end
 
+def attending?(user_id, meetup_id)
+  !MeetupUser.where(user_id: user_id, meetup_id: meetup_id).empty?
+end
+
 get '/' do
   @title = "Muppets"
   erb :"meetups/index"
 end
 
 get '/meetups/create' do
+  authenticate!
   erb :"meetups/create"
 end
 
-get '/meetups/:id' do
-  @meetup = Meetup.find(params[:id])
-  @current_user_attending = MeetupUser.find_by(user_id: session[:user_id],
-                                               meetup_id: @meetup.id)
-  all_attendees = MeetupUser.where(meetup_id: @meetup.id)
-  @other_attendees = Array.new
-  all_attendees.each do |attendee|
-    unless attendee.user_id == session[:user_id]
-      @other_attendees << User.find_by(id: attendee.user_id)
-    end
-  end
+get '/meetups/:meetup_id' do
+  @meetup = Meetup.find(params[:meetup_id])
+  @attendees = @meetup.users
+  @comments = Comment.where(meetup_id: params[:meetup_id])
+  @user_attending = attending?(current_user.id, params[:meetup_id])
   erb :"meetups/show"
 end
 
 post '/meetups' do
-  authenticate!
   meetup = Meetup.create(name: params[:meetup_name],
                              location: params[:location],
                              description: params[:description])
@@ -68,16 +66,28 @@ post '/meetups' do
 end
 
 post '/meetups/:meetup_id/join' do
-  MeetupUser.create(user_id: session[:user_id], meetup_id: params[:meetup_id])
+  authenticate!
+  MeetupUser.create(user_id: current_user.id, meetup_id: params[:meetup_id])
   flash[:notice] = "You have joined this Muppet successfully"
   redirect "/meetups/#{params[:meetup_id]}"
 end
 
 post '/meetups/:meetup_id/leave' do
-  meetup_user_id = MeetupUser.where(user_id: session[:user_id],
+  meetup_user_id = MeetupUser.where(user_id: current_user,
                                     meetup_id: params[:meetup_id]).first.id
   MeetupUser.destroy(meetup_user_id)
   flash[:notice] = "You have left this Muppet successfully"
+  redirect "/meetups/#{params[:meetup_id]}"
+end
+
+post '/meetups/:meetup_id/comment' do
+  comment = Comment.create(content: params[:comment],
+              user_id: current_user.id, meetup_id: params[:meetup_id])
+  if comment.save
+    flash[:notice] = "Comment posted successfully"
+  else
+    flash[:error] = "Failed to post comment"
+  end
   redirect "/meetups/#{params[:meetup_id]}"
 end
 
