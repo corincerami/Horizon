@@ -15,7 +15,7 @@
 
     <ul class="top-bar-section">
       <% if signed_in? %>
-        <li>Signed in as <%= current_user.username %></a></li>
+        <li>Signed in as <%= current_user.username %></li>
         <li><a href="/sign_out">Sign out</a></li>
       <% else %>
         <li><a href="/auth/github">Sign in</a></li>
@@ -25,14 +25,16 @@
 </div>
 
 <% if flash.any? %>
-  <div class="flash">
-    <div class="container">
-      <% if flash[:notice] %>
+  <div class="container">
+    <% if flash[:notice] %>
+      <div class="notice">
         <%= flash[:notice] %>
-      <% elsif flash[:error] %>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="error">
         <%= flash[:error].join("<br>") %>
-      <% end %>
     </div>
+    <% end %>
   </div>
 <% end %>
 

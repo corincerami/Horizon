@@ -34,9 +34,14 @@ a:visited {
   margin: 1em 0;
 }
 
-.flash {
+.notice {
   padding: 1em;
   background-color: #3B9089;
+}
+
+.error {
+  padding: 1em;
+  background-color: red;
 }
 
 .button {
