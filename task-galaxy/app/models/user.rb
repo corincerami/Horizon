@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
 
   has_many :tasks
 
-  validates :email, presence: true, :password, presence: true
+  validates_presence_of :email, :password
 end
