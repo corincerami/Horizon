@@ -1,0 +1,1292 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-15 12:00:21 -0500
+
+ActiveRecord::NoDatabaseError (FATAL:  database "rescue_mission_development" does not exist
+Run `$ bin/rake db:create db:migrate` to create your database):
+  activerecord (4.1.8) lib/active_record/connection_adapters/postgresql_adapter.rb:898:in `rescue in connect'
+  activerecord (4.1.8) lib/active_record/connection_adapters/postgresql_adapter.rb:888:in `connect'
+  activerecord (4.1.8) lib/active_record/connection_adapters/postgresql_adapter.rb:568:in `initialize'
+  activerecord (4.1.8) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.1.8) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:435:in `new_connection'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:445:in `checkout_new_connection'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:416:in `acquire_connection'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:351:in `block in checkout'
+  /opt/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:350:in `checkout'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /opt/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:541:in `retrieve_connection'
+  activerecord (4.1.8) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.1.8) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.1.8) lib/active_record/query_cache.rb:51:in `restore_query_cache_settings'
+  activerecord (4.1.8) lib/active_record/query_cache.rb:43:in `rescue in call'
+  activerecord (4.1.8) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (4.1.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.8) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.8) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /opt/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /opt/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /opt/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-15 12:00:36 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/railties-4.1.8/lib/rails/templates/rails/welcome/index.html.erb (1.0ms)
+Completed 200 OK in 12ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateQuestions (20141215171525)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255) NOT NULL, "description" text NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141215171525"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateQuestions (20141215171525)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.7ms)[0m  DROP TABLE "questions"
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20141215171525'[0m
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateQuestions (20141215171525)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255) NOT NULL, "description" text NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141215171525"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-15 12:26:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/railties-4.1.8/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2014-12-15 12:26:40 -0500
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 491ms (Views: 484.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-15 12:26:40 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-15 12:26:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-15 12:26:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-15 12:26:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-15 12:26:40 -0500
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2014-12-15 12:27:43 -0500
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-15 12:27:43 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-15 12:27:43 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-15 12:27:43 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-15 12:27:43 -0500
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2014-12-15 12:28:13 -0500
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 34ms (Views: 33.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-15 12:28:13 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-15 12:28:13 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-15 12:28:13 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-15 12:28:13 -0500
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2014-12-15 12:29:50 -0500
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `text_field_tag' for #<ActionView::Helpers::FormBuilder:0x007f909bbb92b0>):
+    1: <%= form_for @question do |f| %>
+    2:   <%= label_tag(:title, "Title" ) %>
+    3:   <%= f.text_field_tag :title %>
+    4:   <%= label_tag(:description, "Description" ) %>
+    5:   <%= f.text_area_tag :description %>
+    6:   <%= f.submit "Submit Question" %>
+  app/views/questions/new.html.erb:3:in `block in _app_views_questions_new_html_erb__607736371001273058_70129532441420'
+  app/views/questions/new.html.erb:1:in `_app_views_questions_new_html_erb__607736371001273058_70129532441420'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.3ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2014-12-15 12:30:00 -0500
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-15 12:30:00 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-15 12:30:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-15 12:30:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-15 12:30:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-15 12:30:00 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-15 12:30:27 -0500
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2014-12-15 12:32:08 -0500
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-15 12:32:08 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-15 12:32:08 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-15 12:32:08 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-15 12:32:08 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-15 12:32:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateQuestions (20141215171525)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.4ms)[0m  DROP TABLE "questions"
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20141215171525'[0m
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateQuestions (20141215171525)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (23.4ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255) NOT NULL, "description" text NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141215171525"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (114.4ms)[0m  [1mDROP DATABASE IF EXISTS "rescue_mission_test"[0m
+  [1m[35m (266.0ms)[0m  CREATE DATABASE "rescue_mission_test" ENCODING = 'unicode'
+  [1m[36m (113.3ms)[0m  [1mDROP DATABASE IF EXISTS "rescue_mission_test"[0m
+  [1m[35m (260.8ms)[0m  CREATE DATABASE "rescue_mission_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.8ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "title" character varying(255) NOT NULL, "description" text NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141215171525')
+  [1m[36m (5040.0ms)[0m  [1mDROP DATABASE IF EXISTS "rescue_mission_development"[0m
+PG::ObjectInUse: ERROR:  database "rescue_mission_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "rescue_mission_development"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAnswers (20141215202525)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (7.2ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "description" text NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141215202525"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (114.6ms)[0m  [1mDROP DATABASE IF EXISTS "rescue_mission_test"[0m
+  [1m[35m (301.2ms)[0m  CREATE DATABASE "rescue_mission_test" ENCODING = 'unicode'
+  [1m[36m (112.4ms)[0m  [1mDROP DATABASE IF EXISTS "rescue_mission_test"[0m
+  [1m[35m (249.6ms)[0m  CREATE DATABASE "rescue_mission_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.4ms)[0m  CREATE TABLE "answers" ("id" serial primary key, "description" text NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255) NOT NULL, "description" text NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141215202525')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141215171525')
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateAnswers (20141215202525)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.5ms)[0m  DROP TABLE "answers"
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20141215202525'[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAnswers (20141215202525)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (6.8ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "description" text NOT NULL, "question_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141215202525"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (116.6ms)[0m  [1mDROP DATABASE IF EXISTS "rescue_mission_test"[0m
+  [1m[35m (390.3ms)[0m  CREATE DATABASE "rescue_mission_test" ENCODING = 'unicode'
+  [1m[36m (115.2ms)[0m  [1mDROP DATABASE IF EXISTS "rescue_mission_test"[0m
+  [1m[35m (270.0ms)[0m  CREATE DATABASE "rescue_mission_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE "answers" ("id" serial primary key, "description" text NOT NULL, "question_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "title" character varying(255) NOT NULL, "description" text NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141215202525')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141215171525')
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-16 11:55:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (38.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/railties-4.1.8/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 16ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2014-12-16 11:55:08 -0500
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (55.6ms)[0m  SELECT "questions".* FROM "questions"   ORDER BY "questions"."created_at" DESC
+  Rendered questions/index.html.erb within layouts/application (56.9ms)
+Completed 200 OK in 165ms (Views: 102.3ms | ActiveRecord: 55.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 11:55:08 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:08 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:08 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:08 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:08 -0500
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2014-12-16 11:55:13 -0500
+Processing by QuestionsController#new as HTML
+  Rendered questions/new.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 74ms (Views: 48.0ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:14 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:14 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:14 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:14 -0500
+
+
+Started POST "/questions" for 127.0.0.1 at 2014-12-16 11:55:42 -0500
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "question"=>{"title"=>"This is a question that is hopefully long enough", "description"=>"A very long description goes in this space. I'm going to keep typing until it seems like I have enough characters."}, "commit"=>"Submit Question"}
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered questions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 40ms (Views: 31.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:42 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:42 -0500
+
+
+Started POST "/questions" for 127.0.0.1 at 2014-12-16 11:55:51 -0500
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "question"=>{"title"=>"This is a question that is hopefully long enough", "description"=>"A very long gvhdescription goes in this space. I'm going to keep typing until it seems like I have enough characters.ghghgyvgygvygvyvgygvygvygvygvyvgyfyccfyfvygvyygvgvygvygvyvfygvy"}, "commit"=>"Submit Question"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (21.8ms)[0m  INSERT INTO "questions" ("created_at", "description", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-12-16 16:55:51.075460"], ["description", "A very long gvhdescription goes in this space. I'm going to keep typing until it seems like I have enough characters.ghghgyvgygvygvyvgygvygvygvygvyvgyfyccfyfvygvyygvgvygvygvyvfygvy"], ["title", "This is a question that is hopefully long enough"], ["updated_at", "2014-12-16 16:55:51.075460"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/questions/1
+Completed 302 Found in 93ms (ActiveRecord: 23.0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 11:55:51 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Load (20.4ms)[0m  [1mSELECT "answers".* FROM "answers"[0m
+  Rendered questions/show.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 69ms (Views: 33.8ms | ActiveRecord: 24.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:51 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:51 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 11:55:51 -0500
+
+
+Started POST "/questions/1/answers" for 127.0.0.1 at 2014-12-16 11:56:03 -0500
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "answer"=>{"description"=>"asdf"}, "commit"=>"Submit Answer", "question_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 10ms
+
+ActionView::MissingTemplate (Missing template questions/1 with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/chriscerami/Dropbox/rescue_mission/app/views"
+  * "/Users/chriscerami/Dropbox/rescue_mission"
+  * "/"
+):
+  app/controllers/answers_controller.rb:13:in `create'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-16 13:53:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/railties-4.1.8/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 17ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2014-12-16 13:53:24 -0500
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.6ms)[0m  SELECT "questions".* FROM "questions"   ORDER BY "questions"."created_at" DESC
+  Rendered questions/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 73ms (Views: 62.2ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 13:53:24 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 13:53:24 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 13:53:24 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 13:53:24 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 13:53:24 -0500
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 13:53:25 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered questions/show.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"answers", :id=>"1"} missing required keys: [:question_id]):
+    3: <%= @question.title %>
+    4: <%= @question.description %>
+    5: 
+    6: <%= link_to("Answer this Question", new_question_answer_path) %>
+    7: <%= link_to("View Answers", question_answers_path) %>
+  app/views/questions/show.html.erb:6:in `_app_views_questions_show_html_erb__4016066200402668755_70243659697500'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.9ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 13:53:26 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.6ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered questions/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"answers", :id=>"1"} missing required keys: [:question_id]):
+    3: <%= @question.title %>
+    4: <%= @question.description %>
+    5: 
+    6: <%= link_to("Answer this Question", new_question_answer_path) %>
+    7: <%= link_to("View Answers", question_answers_path) %>
+  app/views/questions/show.html.erb:6:in `_app_views_questions_show_html_erb__4016066200402668755_70243658554960'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 13:53:51 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered questions/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"answers", :id=>"1"} missing required keys: [:question_id]):
+    3: <%= @question.title %>
+    4: <%= @question.description %>
+    5: 
+    6: <%= link_to("Answer this Question", new_question_answer_path) %>
+    7: <%= link_to("View Answers", question_answers_path) %>
+  app/views/questions/show.html.erb:6:in `_app_views_questions_show_html_erb__4016066200402668755_70243659697500'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.2ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 13:53:51 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered questions/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"answers", :id=>"1"} missing required keys: [:question_id]):
+    3: <%= @question.title %>
+    4: <%= @question.description %>
+    5: 
+    6: <%= link_to("Answer this Question", new_question_answer_path) %>
+    7: <%= link_to("View Answers", question_answers_path) %>
+  app/views/questions/show.html.erb:6:in `_app_views_questions_show_html_erb__4016066200402668755_70243658554960'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.7ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 13:56:24 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.6ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered questions/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 81ms (Views: 55.6ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 13:56:24 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 13:56:24 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 13:56:24 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 13:56:24 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 13:56:24 -0500
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:56:26 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 25ms
+
+ActionView::Template::Error (undefined method `answers_path' for #<#<Class:0x007fa7073846a8>:0x007fa70737f978>):
+    1: <%= form_for [@question, @answer] do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177678683920'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.7ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:56:26 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `answers_path' for #<#<Class:0x007fa7073846a8>:0x007fa707abbea8>):
+    1: <%= form_for [@question, @answer] do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177682477260'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.6ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:56:50 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (9.2ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `answers_path' for #<#<Class:0x007fa7073846a8>:0x007fa707878d08>):
+    1: <%= form_for @answer do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177681282500'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.7ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:56:58 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `answers_path' for #<#<Class:0x007fa7073846a8>:0x007fa703661668>):
+    1: <%= form_for @answer do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177646627660'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.2ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:56:58 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (9.9ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `answers_path' for #<#<Class:0x007fa7073846a8>:0x007fa70399e088>):
+    1: <%= form_for @answer do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177681282500'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.5ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:57:19 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 25ms
+
+ActionView::Template::Error (undefined method `answers_path' for #<#<Class:0x007fa70720e328>:0x007fa70720d338>):
+    1: <%= form_for @answer do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177681282500'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.3ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:57:54 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @question do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177681064960'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.6ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:58:58 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (13.3ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `answers_path' for #<#<Class:0x007fa7078105f0>:0x007fa703659440>):
+    1: <%= form_for @answer do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177646599700'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.9ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 13:59:43 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  Rendered answers/new.html.erb within layouts/application (43.9ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (undefined method `answers_path' for #<#<Class:0x007fa7078105f0>:0x007fa7032805a8>):
+    1: <%= form_for [@question, @answer] do |f| %>
+    2:     <%= f.label :description, "Answer" %>
+    3:     <%= f.text_field :description %>
+    4:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:1:in `_app_views_answers_new_html_erb___1456722630805699039_70177644527920'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-16 14:11:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/railties-4.1.8/lib/rails/templates/rails/welcome/index.html.erb (6.7ms)
+Completed 200 OK in 21ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2014-12-16 14:11:46 -0500
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.3ms)[0m  SELECT "questions".* FROM "questions"   ORDER BY "questions"."created_at" DESC
+  Rendered questions/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 69ms (Views: 56.5ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:11:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:11:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:11:47 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:11:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:11:47 -0500
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 14:11:48 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered questions/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 30ms (Views: 26.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 14:11:49 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `model_name' for Hash:Class):
+    1: 
+    2: <%= form_for [@answer, :url => question_answers_path(@question)] do |f| %>
+    3:     <%= f.label :description, "Answer" %>
+    4:     <%= f.text_field :description %>
+    5:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:2:in `_app_views_answers_new_html_erb__1690418860772353024_70153720281500'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.5ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 14:11:49 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.9ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (undefined method `model_name' for Hash:Class):
+    1: 
+    2: <%= form_for [@answer, :url => question_answers_path(@question)] do |f| %>
+    3:     <%= f.label :description, "Answer" %>
+    4:     <%= f.text_field :description %>
+    5:     <%= f.submit "Submit Answer" %>
+  app/views/answers/new.html.erb:2:in `_app_views_answers_new_html_erb__1690418860772353024_70153692526240'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.6ms)
+
+
+Started GET "/questions/" for 127.0.0.1 at 2014-12-16 14:17:40 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.2ms)[0m  SELECT "questions".* FROM "questions"   ORDER BY "questions"."created_at" DESC
+  Rendered questions/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 89ms (Views: 72.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/questions/" for 127.0.0.1 at 2014-12-16 14:17:40 -0500
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions".* FROM "questions"   ORDER BY "questions"."created_at" DESC[0m
+  Rendered questions/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:17:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:17:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:17:40 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:17:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:17:40 -0500
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 14:17:41 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered questions/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 34ms (Views: 30.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 14:17:42 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 59ms (Views: 50.0ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:17:55 -0500
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "answer"=>{"description"=>"heyo ilasdkjfljasdlfkjas;ldkfja;slkdjf;lasjd;flkajsd;lfkjasldkjfa;lskdjf;lasjdf"}, "commit"=>"Submit Answer", "question_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (48.7ms)[0m  [1mINSERT INTO "answers" ("created_at", "description", "question_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-12-16 19:17:55.507708"], ["description", "heyo ilasdkjfljasdlfkjas;ldkfja;slkdjf;lasjd;flkajsd;lfkjasldkjfa;lskdjf;lasjdf"], ["question_id", 1], ["updated_at", "2014-12-16 19:17:55.507708"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/questions/1/answers
+Completed 302 Found in 57ms (ActiveRecord: 49.8ms)
+
+
+Started GET "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:17:55 -0500
+Processing by AnswersController#index as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[35mAnswer Load (0.5ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" IS NULL
+  Rendered answers/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 32ms (Views: 28.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:17:55 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:17:55 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:17:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:17:55 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:17:55 -0500
+
+
+Started GET "/questions/" for 127.0.0.1 at 2014-12-16 14:21:01 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.2ms)[0m  SELECT "questions".* FROM "questions"   ORDER BY "questions"."created_at" DESC
+  Rendered questions/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 79ms (Views: 58.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:21:02 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:21:02 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:21:02 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:21:02 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:21:02 -0500
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 14:21:03 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered questions/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 35ms (Views: 30.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 14:21:05 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (16758.1ms)
+Completed 200 OK in 16810ms (Views: 16799.9ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:21:28 -0500
+
+
+Started POST "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:23:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "answer"=>{"description"=>"heyo "}, "commit"=>"Submit Answer", "question_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 52ms
+
+ActionView::MissingTemplate (Missing template questions/1/answers/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/chriscerami/Dropbox/rescue_mission/app/views"
+  * "/Users/chriscerami/Dropbox/rescue_mission"
+  * "/"
+):
+  app/controllers/answers_controller.rb:14:in `create'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (1.3ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 14:24:57 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 92ms (Views: 74.8ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:24:57 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:24:57 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:24:57 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:24:57 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:24:57 -0500
+
+
+Started POST "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:25:00 -0500
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "answer"=>{"description"=>"asdf"}, "commit"=>"Submit Answer", "question_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mQuestion Load (0.6ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 9ms
+
+ActionView::MissingTemplate (Missing template questions/1/answers/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/chriscerami/Dropbox/rescue_mission/app/views"
+  * "/Users/chriscerami/Dropbox/rescue_mission"
+  * "/"
+):
+  app/controllers/answers_controller.rb:14:in `create'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.4ms)
+
+
+Started GET "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:27:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AnswersController#index as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[35mAnswer Load (0.5ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = 1
+  Rendered answers/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 79ms (Views: 61.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:27:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:27:42 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:27:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:27:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:27:42 -0500
+
+
+Started POST "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:27:50 -0500
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "answer"=>{"description"=>"asdf"}, "commit"=>"Submit Answer", "question_id"=>"1"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Redirected to http://localhost:3000/questions/1/answers/new
+Completed 302 Found in 25ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 14:27:50 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:27:50 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:27:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:27:50 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:27:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:27:50 -0500
+
+
+Started GET "/questions/1/answers/new" for 127.0.0.1 at 2014-12-16 14:28:41 -0500
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered answers/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 57ms (Views: 40.2ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:28:42 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:28:42 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:28:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:28:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:28:42 -0500
+
+
+Started POST "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:28:43 -0500
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "answer"=>{"description"=>"as"}, "commit"=>"Submit Answer", "question_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 9ms
+
+ActionView::MissingTemplate (Missing template questions/1/answers/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/chriscerami/Dropbox/rescue_mission/app/views"
+  * "/Users/chriscerami/Dropbox/rescue_mission"
+  * "/"
+):
+  app/controllers/answers_controller.rb:14:in `create'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.5ms)
+
+
+Started POST "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:32:05 -0500
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "answer"=>{"description"=>"as"}, "commit"=>"Submit Answer", "question_id"=>"1"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 30ms
+
+ActionView::MissingTemplate (Missing template questions/1/answers/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/chriscerami/Dropbox/rescue_mission/app/views"
+  * "/Users/chriscerami/Dropbox/rescue_mission"
+  * "/"
+):
+  app/controllers/answers_controller.rb:14:in `create'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.5ms)
+
+
+Started POST "/questions/1/answers" for 127.0.0.1 at 2014-12-16 14:33:22 -0500
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "answer"=>{"description"=>"as"}, "commit"=>"Submit Answer", "question_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered answers/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 59ms (Views: 35.5ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:33:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:33:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:33:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:33:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:33:22 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-16 14:57:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/railties-4.1.8/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 21ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2014-12-16 14:58:02 -0500
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.1ms)[0m  SELECT "questions".* FROM "questions"   ORDER BY "questions"."created_at" DESC
+  Rendered questions/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 76ms (Views: 62.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:58:02 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:58:02 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:58:02 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:58:02 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:58:02 -0500
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 14:58:04 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (0.5ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  [["question_id", 1]]
+  Rendered questions/show.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 53ms (Views: 46.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/questions/1/edit" for 127.0.0.1 at 2014-12-16 14:58:06 -0500
+Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered questions/edit.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 52ms (Views: 50.0ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/questions/1" for 127.0.0.1 at 2014-12-16 14:58:09 -0500
+Processing by QuestionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "question"=>{"title"=>"This is a question that is hopefully long enough", "description"=>"A very losdfsdfng gvhdescription goes in this space. I'm going to keep typing until it seems like I have enough characters.ghghgyvgygvygvyvgygvygvygvygvyvgyfyccfyfvygvyygvgvygvygvyvfygvy"}, "commit"=>"Submit Question", "id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "questions" SET "description" = $1, "updated_at" = $2 WHERE "questions"."id" = 1  [["description", "A very losdfsdfng gvhdescription goes in this space. I'm going to keep typing until it seems like I have enough characters.ghghgyvgygvygvyvgygvygvygvygvyvgyfyccfyfvygvyygvgvygvygvyvfygvy"], ["updated_at", "2014-12-16 19:58:09.981824"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/questions/1
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 14:58:09 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  Rendered questions/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 14:58:10 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 14:58:10 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 14:58:10 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 14:58:10 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 14:58:10 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-16 16:09:17 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/railties-4.1.8/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 17ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2014-12-16 16:09:27 -0500
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (1.2ms)[0m  SELECT "questions".* FROM "questions"   ORDER BY "questions"."created_at" DESC
+  Rendered questions/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 76ms (Views: 62.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-16 16:09:27 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-16 16:09:27 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-16 16:09:27 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-16 16:09:27 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-16 16:09:27 -0500
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-12-16 16:09:29 -0500
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mAnswer Load (0.5ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  [["question_id", 1]]
+  Rendered questions/show.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 56ms (Views: 49.0ms | ActiveRecord: 3.9ms)
+
+
+Started DELETE "/questions/1" for 127.0.0.1 at 2014-12-16 16:09:31 -0500
+Processing by QuestionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"leTeFARGZ+FFsLeoydhIBiZvSBJ1C7RFwbWdqG07X24=", "id"=>"1"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 500 Internal Server Error in 8ms
+
+ActionView::MissingTemplate (Missing template questions/1 with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/chriscerami/Dropbox/rescue_mission/app/views"
+  * "/Users/chriscerami/Dropbox/rescue_mission"
+  * "/"
+):
+  app/controllers/questions_controller.rb:46:in `destroy'
+
+
+  Rendered /Users/chriscerami/.gem/ruby/2.1.2/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.4ms)

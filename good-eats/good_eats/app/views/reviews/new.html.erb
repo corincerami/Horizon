@@ -1,0 +1,19 @@
+<% if @review.errors.any? %>
+  <% @review.errors.full_messages.each do |msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
+<% ratings = [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]] %>
+
+<%= form_for [@restaurant, @review] do |f| %>
+  <%= f.label :rating %>
+  <%= f.select :rating, ratings, include_blank: true %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit %>
+<% end %>

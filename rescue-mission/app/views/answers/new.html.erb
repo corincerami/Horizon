@@ -1,0 +1,12 @@
+
+<% if @answer.errors.any? %>
+  <% @answer.errors.full_messages.each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+<% end %>
+
+<%= form_for(@answer, :url => question_answers_path(@question)) do |f| %>
+    <%= f.label :description, "Answer" %>
+    <%= f.text_field :description %>
+    <%= f.submit "Submit Answer" %>
+<% end %>

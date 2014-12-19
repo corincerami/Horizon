@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RescueMission</title>
+  <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application.js"></script>
+  
+</head>
+<body>
+
+    Title is too short. Must be 40 characters.
+    Description is too short. Must be 150 characters.
+
+<form accept-charset="UTF-8" action="/questions" class="new_question" id="new_question" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <div class="field_with_errors"><label for="question_title">Title</label></div>
+  <div class="field_with_errors"><input id="question_title" name="question[title]" type="text" value="Huh?" /></div>
+  <div class="field_with_errors"><label for="question_description">Description</label></div>
+  <div class="field_with_errors"><textarea id="question_description" name="question[description]">
+What?</textarea></div>
+  <input name="commit" type="submit" value="Submit Question" />
+</form>
+
+</body>
+</html>

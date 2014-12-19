@@ -1,0 +1,42 @@
+<%= flash[:notice] %>
+
+<div>
+  <%= @restaurant.name %>
+</div>
+
+<div>
+  <%= @restaurant.address %>
+</div>
+
+<div>
+  <%= @restaurant.city %>
+</div>
+
+<div>
+  <%= @restaurant.state %>
+</div>
+
+<div>
+  <%= @restaurant.zip_code %>
+</div>
+
+<div>
+  <%= @restaurant.description %>
+</div>
+
+<div>
+  <%= @restaurant.category %>
+</div>
+
+<%= link_to("Write a Review", new_restaurant_review_path(@restaurant)) %>
+
+<% if @reviews %>
+  <% @reviews.each do |review| %>
+    <div>
+      <%= "Rating: #{review.rating}" %>
+    </div>
+    <div>
+      <%= review.body %>
+    </div>
+  <% end %>
+<% end %>
