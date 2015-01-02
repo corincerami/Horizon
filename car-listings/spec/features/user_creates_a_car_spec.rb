@@ -29,6 +29,7 @@ feature "User creates a car" do
     fill_in "Description", with: "It's a car."
     click_on "Create Car"
 
+    expect(page).to have_content "All Cars"
     expect(page).to have_content "Blue 2015 Toyota"
     expect(page).to have_content "Car created"
   end
@@ -45,5 +46,22 @@ feature "User creates a car" do
     expect(page).to have_content "Color can't be blank"
     expect(page).to have_content "Year can't be blank"
     expect(page).to have_content "Mileage can't be blank"
+  end
+
+  it "fills in the mileage with something other than an integer" do
+    manufacturer = FactoryGirl.create(:manufacturer)
+    visit root_path
+    click_on "View all manufacturers"
+    click_on manufacturer.name
+
+    click_on "Create a car"
+
+    fill_in "Color", with: "Blue"
+    select "2015", from: "Year"
+    fill_in "Mileage", with: "A word"
+    fill_in "Description", with: "It's a car."
+    click_on "Create Car"
+
+    expect(page).to have_content "Mileage is not a number"
   end
 end

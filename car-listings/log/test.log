@@ -3490,3 +3490,1549 @@ Processing by ManufacturersController#create as HTML
   Rendered manufacturers/new.html.erb within layouts/application (2.9ms)
 Completed 200 OK in 10ms (Views: 4.2ms | ActiveRecord: 0.7ms)
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:05:43.653582"], ["updated_at", "2015-01-02 16:05:43.653582"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 25ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/50" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 50]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/50/cars/new" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"50"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 50]]
+  Rendered cars/new.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 30ms (Views: 20.2ms | ActiveRecord: 2.1ms)
+Started POST "/manufacturers/50/cars" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"50"}
+  [1m[36mManufacturer Load (0.5ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 50]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "50"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 20ms (ActiveRecord: 1.4ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 50]]
+  Rendered cars/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:05:43.813665"], ["updated_at", "2015-01-02 16:05:43.813665"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/51" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mManufacturer Load (0.5ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 51]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/51/cars/new" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"51"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 51]]
+  Rendered cars/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.3ms)
+Started POST "/manufacturers/51/cars" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"51"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 51]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:05:43.878830"], ["updated_at", "2015-01-02 16:05:43.878830"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:43 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered manufacturers/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:05:57.552818"], ["updated_at", "2015-01-02 16:05:57.552818"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 26ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/53" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"53"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 53]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/53/cars/new" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"53"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 53]]
+  Rendered cars/new.html.erb within layouts/application (43.5ms)
+Completed 200 OK in 57ms (Views: 47.8ms | ActiveRecord: 2.0ms)
+Started POST "/manufacturers/53/cars" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"53"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 53]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "53"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 17ms (ActiveRecord: 1.2ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 53]]
+  Rendered cars/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:05:57.735201"], ["updated_at", "2015-01-02 16:05:57.735201"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/54" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"54"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 54]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/54/cars/new" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"54"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 54]]
+  Rendered cars/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+Started POST "/manufacturers/54/cars" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"54"}
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 54]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 9ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:05:57.800687"], ["updated_at", "2015-01-02 16:05:57.800687"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:05:57 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered manufacturers/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:09:46.902412"], ["updated_at", "2015-01-02 16:09:46.902412"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:09:46 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 30ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:46 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/56" for 127.0.0.1 at 2015-01-02 11:09:46 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"56"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 56]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/56/cars/new" for 127.0.0.1 at 2015-01-02 11:09:46 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"56"}
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 56]]
+  Rendered cars/new.html.erb within layouts/application (44.3ms)
+Completed 200 OK in 62ms (Views: 49.0ms | ActiveRecord: 2.5ms)
+Started POST "/manufacturers/56/cars" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"56"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 56]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "56"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 22ms (ActiveRecord: 1.5ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 56]]
+  Rendered cars/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:09:47.101205"], ["updated_at", "2015-01-02 16:09:47.101205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/57" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"57"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/57/cars/new" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"57"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 57]]
+  Rendered cars/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+Started POST "/manufacturers/57/cars" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"57"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 11ms (Views: 5.8ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:09:47.152924"], ["updated_at", "2015-01-02 16:09:47.152924"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/58" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"58"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 58]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/58/cars/new" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"58"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 58]]
+  Rendered cars/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+Started POST "/manufacturers/58/cars" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"A word", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"58"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 58]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["color", "Blue"], ["year", 2015], ["mileage", 0], ["description", "It's a car."], ["manufacturer_id", "58"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cars
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by CarsController#index as HTML
+  [1m[35mCar Load (0.3ms)[0m  SELECT "cars".* FROM "cars"
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 58]]
+  Rendered cars/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:09:47.218686"], ["updated_at", "2015-01-02 16:09:47.218686"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:47 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered manufacturers/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:09:55.949381"], ["updated_at", "2015-01-02 16:09:55.949381"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:09:55 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 28ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/60" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"60"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 60]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/60/cars/new" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"60"}
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 60]]
+  Rendered cars/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 35ms (Views: 23.2ms | ActiveRecord: 2.3ms)
+Started POST "/manufacturers/60/cars" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"60"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 60]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "60"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 19ms (ActiveRecord: 1.0ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 60]]
+  Rendered cars/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:09:56.126858"], ["updated_at", "2015-01-02 16:09:56.126858"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/61" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"61"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 61]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/61/cars/new" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"61"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 61]]
+  Rendered cars/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+Started POST "/manufacturers/61/cars" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"61"}
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 61]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 12ms (Views: 6.6ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:09:56.184514"], ["updated_at", "2015-01-02 16:09:56.184514"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/62" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"62"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 62]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/62/cars/new" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"62"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 62]]
+  Rendered cars/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.3ms)
+Started POST "/manufacturers/62/cars" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"A word", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"62"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 62]]
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["color", "Blue"], ["year", 2015], ["mileage", 0], ["description", "It's a car."], ["manufacturer_id", "62"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cars
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by CarsController#index as HTML
+  [1m[35mCar Load (0.3ms)[0m  SELECT "cars".* FROM "cars"
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 62]]
+  Rendered cars/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:09:56.254659"], ["updated_at", "2015-01-02 16:09:56.254659"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:09:56 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered manufacturers/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:15:19.921947"], ["updated_at", "2015-01-02 16:15:19.921947"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:15:19 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (62.5ms)
+Completed 200 OK in 91ms (Views: 81.4ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/64" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"64"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 64]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/64/cars/new" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"64"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 64]]
+  Rendered cars/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 34ms (Views: 22.5ms | ActiveRecord: 2.1ms)
+Started POST "/manufacturers/64/cars" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"64"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 64]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "64"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 18ms (ActiveRecord: 1.1ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 64]]
+  Rendered cars/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:15:20.150644"], ["updated_at", "2015-01-02 16:15:20.150644"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/65" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"65"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 65]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/65/cars/new" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"65"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 65]]
+  Rendered cars/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+Started POST "/manufacturers/65/cars" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"65"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 65]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 10ms (Views: 5.0ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:15:20.199241"], ["updated_at", "2015-01-02 16:15:20.199241"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/66" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"66"}
+  [1m[35mManufacturer Load (0.2ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 66]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+Started GET "/manufacturers/66/cars/new" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"66"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 66]]
+  Rendered cars/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.3ms)
+Started POST "/manufacturers/66/cars" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"A word", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"66"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 66]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["color", "Blue"], ["year", 2015], ["mileage", 0], ["description", "It's a car."], ["manufacturer_id", "66"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cars
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by CarsController#index as HTML
+  [1m[35mCar Load (0.3ms)[0m  SELECT "cars".* FROM "cars"
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 66]]
+  Rendered cars/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:15:20.265213"], ["updated_at", "2015-01-02 16:15:20.265213"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:20 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered manufacturers/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:15:55.763629"], ["updated_at", "2015-01-02 16:15:55.763629"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 28ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/68" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"68"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 68]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/68/cars/new" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"68"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 68]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:15:55.861807"], ["updated_at", "2015-01-02 16:15:55.861807"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/69" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 69]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/69/cars/new" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"69"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 69]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:15:55.882316"], ["updated_at", "2015-01-02 16:15:55.882316"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/70" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"70"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 70]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/70/cars/new" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"70"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 70]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:15:55.935850"], ["updated_at", "2015-01-02 16:15:55.935850"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:15:55 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered manufacturers/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:26.020160"], ["updated_at", "2015-01-02 16:16:26.020160"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (61.2ms)
+Completed 200 OK in 85ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/72" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 72]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/72/cars/new" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"72"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 72]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:26.167177"], ["updated_at", "2015-01-02 16:16:26.167177"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.6ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+Started GET "/manufacturers/73" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 73]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/73/cars/new" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"73"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 73]]
+Completed 500 Internal Server Error in 3ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:26.188539"], ["updated_at", "2015-01-02 16:16:26.188539"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/74" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 74]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/74/cars/new" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"74"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 74]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:26.240548"], ["updated_at", "2015-01-02 16:16:26.240548"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:26 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered manufacturers/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:40.900199"], ["updated_at", "2015-01-02 16:16:40.900199"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:40 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 87ms (Views: 78.2ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/76" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"76"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 76]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/76/cars/new" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"76"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 76]]
+  Rendered cars/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 32ms (Views: 21.4ms | ActiveRecord: 2.1ms)
+Started POST "/manufacturers/76/cars" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"76"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 76]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "76"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 18ms (ActiveRecord: 1.2ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 76]]
+  Rendered cars/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:41.125927"], ["updated_at", "2015-01-02 16:16:41.125927"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/77" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"77"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 77]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/77/cars/new" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"77"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 77]]
+  Rendered cars/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+Started POST "/manufacturers/77/cars" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"77"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 77]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 11ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:41.175388"], ["updated_at", "2015-01-02 16:16:41.175388"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/78" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"78"}
+  [1m[35mManufacturer Load (0.2ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 78]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+Started GET "/manufacturers/78/cars/new" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"78"}
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 78]]
+  Rendered cars/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.2ms)
+Started POST "/manufacturers/78/cars" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"A word", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"78"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 78]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered cars/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:41.241800"], ["updated_at", "2015-01-02 16:16:41.241800"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:41 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered manufacturers/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:59.441830"], ["updated_at", "2015-01-02 16:16:59.441830"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 27ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/80" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"80"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 80]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/80/cars/new" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"80"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 80]]
+  Rendered cars/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 30ms (Views: 20.1ms | ActiveRecord: 2.0ms)
+Started POST "/manufacturers/80/cars" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"80"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 80]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "80"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 17ms (ActiveRecord: 1.1ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 80]]
+  Rendered cars/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:59.594451"], ["updated_at", "2015-01-02 16:16:59.594451"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/81" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"81"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 81]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/81/cars/new" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"81"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 81]]
+  Rendered cars/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.3ms)
+Started POST "/manufacturers/81/cars" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"81"}
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 81]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:59.646573"], ["updated_at", "2015-01-02 16:16:59.646573"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/82" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"82"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 82]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/82/cars/new" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"82"}
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 82]]
+  Rendered cars/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.2ms)
+Started POST "/manufacturers/82/cars" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"A word", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"82"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 82]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered cars/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:16:59.710443"], ["updated_at", "2015-01-02 16:16:59.710443"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.5ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:16:59 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered manufacturers/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 76ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:17:42.983662"], ["updated_at", "2015-01-02 16:17:42.983662"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:17:42 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (61.3ms)
+Completed 200 OK in 96ms (Views: 80.2ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.5ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.5ms)
+Started GET "/manufacturers/84" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"84"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 84]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/84/cars/new" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"84"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 84]]
+  Rendered cars/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 34ms (Views: 23.0ms | ActiveRecord: 2.3ms)
+Started POST "/manufacturers/84/cars" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"84"}
+  [1m[36mManufacturer Load (0.5ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 84]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "84"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 17ms (ActiveRecord: 1.2ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 84]]
+  Rendered cars/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:17:43.223045"], ["updated_at", "2015-01-02 16:17:43.223045"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/85" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"85"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 85]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/85/cars/new" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"85"}
+  [1m[35mManufacturer Load (0.6ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 85]]
+  Rendered cars/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.6ms)
+Started POST "/manufacturers/85/cars" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"85"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 85]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 12ms (Views: 5.3ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:17:43.275292"], ["updated_at", "2015-01-02 16:17:43.275292"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/86" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"86"}
+  [1m[35mManufacturer Load (0.2ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 86]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+Started GET "/manufacturers/86/cars/new" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"86"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 86]]
+  Rendered cars/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.3ms)
+Started POST "/manufacturers/86/cars" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"A word", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"86"}
+  [1m[35mManufacturer Load (0.2ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 86]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered cars/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:17:43.342028"], ["updated_at", "2015-01-02 16:17:43.342028"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:43 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered manufacturers/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:17:58.545124"], ["updated_at", "2015-01-02 16:17:58.545124"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (58.7ms)
+Completed 200 OK in 86ms (Views: 77.1ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.6ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.6ms)
+Started GET "/manufacturers/88" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"88"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 88]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/88/cars/new" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"88"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 88]]
+  Rendered cars/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 32ms (Views: 21.1ms | ActiveRecord: 2.0ms)
+Started POST "/manufacturers/88/cars" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"100000", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"88"}
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 88]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "cars" ("color", "year", "mileage", "description", "manufacturer_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["color", "Blue"], ["year", 2015], ["mileage", 100000], ["description", "It's a car."], ["manufacturer_id", "88"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars
+Completed 302 Found in 17ms (ActiveRecord: 1.3ms)
+Started GET "/cars" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.5ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 88]]
+  Rendered cars/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:17:58.759643"], ["updated_at", "2015-01-02 16:17:58.759643"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT "manufacturers".* FROM "manufacturers"
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/89" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"89"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 89]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/89/cars/new" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"89"}
+  [1m[35mManufacturer Load (0.4ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 89]]
+  Rendered cars/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+Started POST "/manufacturers/89/cars" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"", "year"=>"", "mileage"=>"", "description"=>""}, "commit"=>"Create Car", "manufacturer_id"=>"89"}
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 89]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered cars/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 13ms (Views: 6.6ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:17:58.812517"], ["updated_at", "2015-01-02 16:17:58.812517"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/90" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#show as HTML
+  Parameters: {"id"=>"90"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 90]]
+  Rendered manufacturers/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+Started GET "/manufacturers/90/cars/new" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by CarsController#new as HTML
+  Parameters: {"manufacturer_id"=>"90"}
+  [1m[36mManufacturer Load (0.2ms)[0m  [1mSELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1[0m  [["id", 90]]
+  Rendered cars/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.2ms)
+Started POST "/manufacturers/90/cars" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"color"=>"Blue", "year"=>"2015", "mileage"=>"A word", "description"=>"It's a car."}, "commit"=>"Create Car", "manufacturer_id"=>"90"}
+  [1m[35mManufacturer Load (0.3ms)[0m  SELECT  "manufacturers".* FROM "manufacturers" WHERE "manufacturers"."id" = $1 LIMIT 1  [["id", 90]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered cars/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 9ms (Views: 4.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by HomesController#show as HTML
+  Rendered homes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.4ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"Toyota", "country"=>"Japan"}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "manufacturers" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Toyota"], ["country", "Japan"], ["created_at", "2015-01-02 16:17:58.876151"], ["updated_at", "2015-01-02 16:17:58.876151"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/manufacturers
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+Started GET "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#index as HTML
+  [1m[36mManufacturer Load (0.3ms)[0m  [1mSELECT "manufacturers".* FROM "manufacturers"[0m
+  Rendered manufacturers/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/manufacturers/new" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#new as HTML
+  Rendered manufacturers/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/manufacturers" for 127.0.0.1 at 2015-01-02 11:17:58 -0500
+Processing by ManufacturersController#create as HTML
+  Parameters: {"utf8"=>"✓", "manufacturer"=>{"name"=>"", "country"=>""}, "commit"=>"Create Manufacturer"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered manufacturers/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
