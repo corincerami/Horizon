@@ -1,0 +1,9 @@
+<h1>All Manufacturers</h1>
+
+<%= link_to("Create a manufacturer", new_manufacturer_path) %>
+
+<% @manufacturers.each do |manufacturer| %>
+  <div>
+    <%= link_to(manufacturer.name, manufacturer_path(manufacturer)) %>
+  </div>
+<% end %>

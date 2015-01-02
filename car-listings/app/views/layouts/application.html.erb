@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CarListings</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% flash.each do |key, value| %>
+    <div class="row">
+      <div class=" small-12 medium-4 columns flash flash-<%= key %>">
+        <%= value %>
+      </div>
+    </div>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>
